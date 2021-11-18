@@ -14,6 +14,16 @@ import { RegistroUsuarioComponent } from './components/registro-usuario/registro
 import { CarrouselComponent } from './components/carrousel/carrousel.component';
 import { ProductosComponent } from './components/productos/productos.component';
 import { ProductosDetalleComponent } from './components/productos/productos-detalle/productos-detalle.component';
+import { NZ_I18N } from 'ng-zorro-antd/i18n';
+import { es_ES } from 'ng-zorro-antd/i18n';
+import { registerLocaleData } from '@angular/common';
+import es from '@angular/common/locales/es';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NzButtonModule } from 'ng-zorro-antd/button';
+
+registerLocaleData(es);
 
 
 @NgModule({
@@ -31,9 +41,13 @@ import { ProductosDetalleComponent } from './components/productos/productos-deta
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    NzButtonModule
   
   ],
-  providers: [],
+  providers: [{ provide: NZ_I18N, useValue: es_ES }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
