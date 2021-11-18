@@ -1,28 +1,38 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import {MenubarModule} from 'primeng/menubar';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { ButtonModule } from "primeng/button";
-import { PanelModule } from "primeng/panel";
-import { RippleModule } from "primeng/ripple";
-import { InputTextModule } from "primeng/inputtext";
+
+import { NavbarComponent } from './shared/navbar/navbar.component';
+import { FooterComponent } from './shared/footer/footer.component';
+import { CarritoDeCompraComponent } from './components/carrito-de-compra/carrito-de-compra.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegistroUsuarioComponent } from './components/registro-usuario/registro-usuario.component';
+import { CarrouselComponent } from './components/carrousel/carrousel.component';
+import { ProductosComponent } from './components/productos/productos.component';
+import { ProductosDetalleComponent } from './components/productos/productos-detalle/productos-detalle.component';
+
+import { PrimeNgModule } from './prime-ng/prime-ng.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavbarComponent,
+    FooterComponent,
+    CarritoDeCompraComponent,
+    LoginComponent,
+    RegistroUsuarioComponent,
+    CarrouselComponent,
+    ProductosComponent,
+    ProductosDetalleComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MenubarModule,
-    ButtonModule,
-    PanelModule,
-    RippleModule,
-    InputTextModule
+    PrimeNgModule
   ],
   providers: [],
   bootstrap: [AppComponent]
