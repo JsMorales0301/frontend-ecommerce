@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PrimeNGConfig } from 'primeng/api';
+
 
 @Component({
   selector: 'app-login',
@@ -10,16 +10,12 @@ import { PrimeNGConfig } from 'primeng/api';
 
 export class LoginComponent{
 
-  constructor(private primengConfig: PrimeNGConfig) { }
+  constructor() { }
 
-  ngOnInit(): any {
-    this.primengConfig.ripple = true;
+  ngOnInit(): void {
+   
   }
 
-
-   displayModal: boolean = true;
-
-  showModalDialog() {
-    this.displayModal = true;
+  
 }
-}
+

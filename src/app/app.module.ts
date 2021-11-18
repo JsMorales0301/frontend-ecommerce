@@ -15,7 +15,6 @@ import { CarrouselComponent } from './components/carrousel/carrousel.component';
 import { ProductosComponent } from './components/productos/productos.component';
 import { ProductosDetalleComponent } from './components/productos/productos-detalle/productos-detalle.component';
 
-import { PrimeNgModule } from './prime-ng/prime-ng.module';
 
 @NgModule({
   declarations: [
@@ -32,7 +31,7 @@ import { PrimeNgModule } from './prime-ng/prime-ng.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    PrimeNgModule
+  
   ],
   providers: [],
   bootstrap: [AppComponent]
