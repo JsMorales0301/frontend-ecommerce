@@ -19,7 +19,7 @@
       <nz-input-group [nzPrefix]="prefixTemplateUser">
         <input type="text" nz-input placeholder="Ingresa tu nombre de usuario" />
       </nz-input-group>
-      <ng-template #prefixTemplateUser><i nz-icon nzType="user"></i></ng-template>
+      <ng-template #prefixTemplateUser><i class="fas fa-user"></i></ng-template>
     </div>
   
     <!-- Password input -->
@@ -31,7 +31,7 @@
  
       />
     </nz-input-group>
-    <ng-template #prefixTemplateUserLock><i nz-icon nzType="lock" nzTheme="fill"></i></ng-template>
+    <ng-template #prefixTemplateUserLock><i class="fas fa-key"></i></ng-template>
     <ng-template #suffixTemplate>
       <i nz-icon [nzType]="passwordVisible ? 'eye-invisible' : 'eye'" (click)="passwordVisible = !passwordVisible"></i>
     </ng-template>
