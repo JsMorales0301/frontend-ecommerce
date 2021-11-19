@@ -22,6 +22,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NzButtonModule } from 'ng-zorro-antd/button';
+import { NzModalModule } from 'ng-zorro-antd/modal';
 
 registerLocaleData(es);
 
@@ -36,7 +37,9 @@ registerLocaleData(es);
     RegistroUsuarioComponent,
     CarrouselComponent,
     ProductosComponent,
-    ProductosDetalleComponent
+    ProductosDetalleComponent,
+  
+
   ],
   imports: [
     BrowserModule,
@@ -44,7 +47,9 @@ registerLocaleData(es);
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    NzButtonModule
+    NzButtonModule,
+    NzModalModule
+
   
   ],
   providers: [{ provide: NZ_I18N, useValue: es_ES }],
