@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 
 @Component({
@@ -19,6 +20,9 @@ export class LoginComponent{
   isVisible = false;
   isOkLoading = false;
 
+
+
+// modal functionality
   showModal(): void {
     this.isVisible = true;
   }
@@ -34,6 +38,15 @@ export class LoginComponent{
   handleCancel(): void {
     this.isVisible = false;
   }
-  
+// end modal functionality
+
+// form functionality
+
+
+
+passwordVisible = false;
+password?: string;
+
+// end form functionality
 }
 
