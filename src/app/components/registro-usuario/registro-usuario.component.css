@@ -1,0 +1,18 @@
+i {
+    cursor: pointer;
+  }
+
+  [nz-form] {
+    max-width: 600px;
+  }
+
+ 
+
+  .register-are {
+    margin-bottom: 8px;
+  }
+
+  .ant-form-item-label > label::after {
+    content: 'olo'!important;
+    position: relative;
+}
