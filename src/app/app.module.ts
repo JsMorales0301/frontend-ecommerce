@@ -34,6 +34,8 @@ import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzSelectModule } from 'ng-zorro-antd/select';
+import { NzCarouselModule } from 'ng-zorro-antd/carousel';
+
 
 registerLocaleData(es);
 
@@ -71,7 +73,8 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
     ReactiveFormsModule,
     HttpClientJsonpModule,
     NzIconModule,
-    NzSelectModule  
+    NzSelectModule,
+    NzCarouselModule  
 
   ],
   providers: [ { provide: NZ_I18N, useValue: es_ES }, { provide: NZ_ICONS, useValue: icons } ],
