@@ -8,7 +8,9 @@
           />
     
      
-      <form class="card-body"  style="width: 400px;" [formGroup]="validateForm" (ngSubmit)="submitForm()">
+      <form class="card-body"   [formGroup]="validateForm" (ngSubmit)="submitForm()">
+       
+
         <!-- Username input -->
         <div class=" mb-4">
           <nz-input-group [nzPrefix]="prefixTemplateUser"  [nzSuffix]="suffixTemplateUserInfo">
@@ -104,6 +106,12 @@
           <button type="button" class="btn btn-primary btn-floating mx-1">
             <i class="fab fa-github"></i>
           </button>
+        </div>
+
+        <br>
+
+        <div class="text-center">
+            <p>¿Ya tienes una cuenta? <a href=""> ¡Inicia Sesión!</a> </p>
         </div>
         
       </form>
