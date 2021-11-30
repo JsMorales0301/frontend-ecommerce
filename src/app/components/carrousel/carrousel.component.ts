@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CarrouselComponent implements OnInit {
 
+  array = ['../../../assets/logo/LOGO.png','https://www.teknofilo.com/wp-content/uploads/2020/03/whatsapp-1280x720.jpg'];
+
   constructor() { }
 
   ngOnInit(): void {
