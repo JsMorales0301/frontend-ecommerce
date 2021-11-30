@@ -36,3 +36,8 @@ body{
   .button-register{
     border-radius: 10px;
   }
+
+  .ant-input-group > .ant-input:last-child, .ant-input-group-addon:last-child {
+    border-radius: 10px;
+}
+
