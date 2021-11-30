@@ -16,3 +16,23 @@ i {
     content: 'olo'!important;
     position: relative;
 }
+
+body{
+    background-color: #31697f;
+  }
+
+  img{
+    height: 140px;
+      margin: auto;
+      width: 30%; 
+      padding: 10px;
+    
+  }
+  
+  .ant-input-affix-wrapper{
+    border-radius: 10px;
+  }
+  
+  .button-register{
+    border-radius: 10px;
+  }
