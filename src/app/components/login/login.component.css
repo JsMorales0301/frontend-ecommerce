@@ -1,3 +1,15 @@
+body{
+  background-color: #31697f;
+}
+
 i {
     cursor: pointer;
   }
+
+img{
+  height: 140px;
+    margin: auto;
+    width: 30%; 
+    padding: 10px;
+  
+}
