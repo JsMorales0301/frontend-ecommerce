@@ -38,6 +38,7 @@ import { NzCarouselModule } from 'ng-zorro-antd/carousel';
 import { NzCardModule } from 'ng-zorro-antd/card';
 import { NzAvatarModule } from 'ng-zorro-antd/avatar';
 import { NzDividerModule } from 'ng-zorro-antd/divider';
+import { UsersComponent } from './components/administracion/users/users.component';
 
 
 
@@ -59,6 +60,7 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
     CarrouselComponent,
     ProductosComponent,
     ProductosDetalleComponent,
+    UsersComponent,
   
 
   ],

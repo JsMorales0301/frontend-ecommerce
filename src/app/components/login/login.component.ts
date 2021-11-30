@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { NavbarComponent } from 'src/app/shared/navbar/navbar.component';
 
 
 @Component({
@@ -11,13 +12,15 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 export class LoginComponent{
 
-  constructor() { }
+  constructor(navBar : NavbarComponent) { }
+  a: any = NavbarComponent;
+
 
   ngOnInit(): void {
    
   }
 
-  isVisible = false;
+  isVisible = true;
   isOkLoading = false;
 
 
@@ -25,6 +28,7 @@ export class LoginComponent{
 // modal functionality
   showModal(): void {
     this.isVisible = true;
+    this.a.login = true
   }
 
   handleOk(): void {
@@ -37,6 +41,7 @@ export class LoginComponent{
 
   handleCancel(): void {
     this.isVisible = false;
+    this.a.login = false
   }
 // end modal functionality
 

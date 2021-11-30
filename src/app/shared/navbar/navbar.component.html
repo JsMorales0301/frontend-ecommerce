@@ -57,7 +57,7 @@
             </a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
                 <li>
-                    <a class="dropdown-item" routerLink="login">Iniciar Sesión</a>
+                    <a class="dropdown-item" (click) = "login = true">Iniciar Sesión</a>
                 </li>
                 <li routerLink="register">
                     <a class="dropdown-item" href="#">Registrarme</a>
@@ -78,4 +78,7 @@
     <!-- Container wrapper -->
 </nav>
 <!-- Navbar -->
-<!-- Juan se-->
+<!-- Component login -->
+<div *ngIf = "login">
+    <app-login></app-login>
+</div>
