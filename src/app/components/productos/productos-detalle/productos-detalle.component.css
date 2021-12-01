@@ -18,7 +18,7 @@ nz-select {
 
 
 body{
-    background-color: #ffff;
+    background-color: #ebebeb;
 }
 
 #main-image{
@@ -29,11 +29,13 @@ display: block;
       
 }
 
+
+
 .vertical-line{
     border-left: solid;
     border-color: #ebebeb;
     border-width: 2px;
-    height: 60vh;
+    height: 50vh;
 } 
 
 .parent{
@@ -41,6 +43,10 @@ display: block;
     display:flex;
     justify-content: center;
     align-items: center;
+    padding-bottom: 20px;
+    padding-left: 0;
+   
+   
 }
 
 .carousel-indicators [data-mdb-target] {
