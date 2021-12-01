@@ -7,6 +7,15 @@
     overflow: hidden;
   }
 
+  .carruselPrincipal{
+    height: 600px;
+    width: 100%;
+  }
+
+  .carruselPrincipal img{
+    width: 100%;
+  }
+
   h3 {
     color: #fff;
     margin-bottom: 0;

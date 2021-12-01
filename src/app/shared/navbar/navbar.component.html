@@ -1,37 +1,38 @@
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light ">
+<nav class="navbar navbar-expand-lg navbar-light bg-dark ">
     <!-- Container wrapper -->
     <div class="container-fluid ">
         <!-- Toggle button -->
         <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
             data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
             aria-label="Toggle navigation">
-            <i class="fas fa-bars"></i>
+            <i class="fas fa-bars" id="buttonBars"></i>
         </button>
-        <div>
-            <a class="navbar-brand mt-lg-0" href="#">
+        <div class="titulo">
+            <h1 class="mb-0 mt-1">POINT TECHNOLOGIC</h1>
+                <!-- <a class="navbar-brand mt-lg-0" href="#">
                 <i class="fas fa-pizza-slice"></i>
-                <!-- <img src="./assets/logo/LOGO.png" height="28" alt="" loading="lazy" /> -->
-            </a>
+                <!-- <img src="./assets/logo/LOGO.png" height="28" alt="" loading="lazy" /> 
+                </a>-->
         </div>
         <!-- Collapsible wrapper -->
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse "  id="navbarSupportedContent">
             <!-- Navbar brand -->
 
             <!-- Menu -->
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
+            <ul class="navbar-nav me-auto mx-3 mb-2 mb-lg-0">
+                <li class="nav-item mx-2">
                     <!-- Buscar -->
                     <div class="input-group rounded">
                         <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
                             aria-describedby="search-addon" />
                     </div>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Ofertas</a>
+                <li class="nav-item mx-2">
+                    <a class="nav-link text-light" href="#"><span>Ofertas</span></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Team</a>
+                <li class="nav-item mx-2">
+                    <a class="nav-link text-light " href="#"><span>Team</span></a>
                 </li>
             </ul>
             <!-- Left links -->
@@ -40,20 +41,20 @@
 
 
         <!-- Right elements -->
-        <div class="d-flex align-items-center">
+        <div class="d-flex align-items-center iconosNavbar">
 
 
             <!-- Favoritos -->
             <a class="text-reset me-3 dropdown-toggle hidden-arrow" href="#" id="navbarDropdownMenuLink" role="button"
                 aria-expanded="false">
-                <i class="fas fa-heart fa-lg"></i>
+                <i class="fas fa-heart fa-lg" id="favoritos"></i>
                 <!--<span class="badge rounded-pill badge-notification bg-danger">1</span>-->
             </a>
 
             <!-- Login -->
             <a class="text-reset me-3 dropdown-toggle d-flex align-items-center hidden-arrow" href="#"
                 id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
-                <i class="fas fa-user fa-lg"></i>
+                <i class="fas fa-user fa-lg" id="login" ></i>
             </a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
                 <li>
@@ -68,7 +69,7 @@
 
             <!-- Carrito de compras -->
             <a class="text-reset me-3 dropdown-toggle hidden-arrow" href="#">
-                <i class="fas fa-shopping-cart fa-lg"></i>
+                <i class="fas fa-shopping-cart fa-lg" id="carrito" ></i>
                 <span class="badge rounded-pill badge-notification bg-danger">1</span>
             </a>
 
