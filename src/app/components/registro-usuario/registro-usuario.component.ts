@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-
 import { NzFormTooltipIcon } from 'ng-zorro-antd/form';
+import { UsersRequestService } from 'src/app/services/users-request.service';
 
 @Component({
   selector: 'app-registro-usuario',
@@ -13,7 +13,7 @@ export class RegistroUsuarioComponent implements OnInit {
 
 
  
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private usersService: UsersRequestService ) { }
 
   ngOnInit(): void {
     this.validateForm = this.fb.group({
@@ -54,9 +54,34 @@ validateForm!: FormGroup;
     theme: 'twotone'
   };
 
+// Create user funtionality
+createUser():void{
+  console.log('showing data from createUser function', this.validateForm.value)
+
+  let register = {
+    host: this.usersService._url,
+    path: '/api/auth/register',
+    data: {
+      email: this.validateForm.value.email ,
+      password: this.validateForm.value.password,
+      username: this.validateForm.value.username,
+      idType: this.validateForm.value.idType,
+      userDocument: this.validateForm.value.userDocument,
+      name: this.validateForm.value.name,
+      lastname: this.validateForm.value.lastName,
+
+    }
+  }
+  this.usersService.createUser(register.host + register.path, register.data).then((res:any) =>{
+    console.log(res)
+  })
+};
+
   submitForm(): void {
     if (this.validateForm.valid) {
       console.log('form submited', this.validateForm.value);
+      this.createUser();
+      
     } else {
       Object.values(this.validateForm.controls).forEach(control => {
         if (control.invalid) {
@@ -66,6 +91,9 @@ validateForm!: FormGroup;
       });
     }
   }
+
+
+  
 
   updateConfirmValidator(): void {
     /** wait for refresh value */

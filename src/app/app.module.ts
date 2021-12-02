@@ -3,10 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClient, HttpClientJsonpModule, HttpRequest } from '@angular/common/http';
-
-
-
+import { HttpClientJsonpModule } from '@angular/common/http';
 import { NZ_ICONS } from 'ng-zorro-antd/icon';
 import { en_US } from 'ng-zorro-antd/i18n';
 import { IconDefinition } from '@ant-design/icons-angular';
@@ -37,6 +34,13 @@ import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzSelectModule } from 'ng-zorro-antd/select';
+import { NzCarouselModule } from 'ng-zorro-antd/carousel';
+import { NzCardModule } from 'ng-zorro-antd/card';
+import { NzAvatarModule } from 'ng-zorro-antd/avatar';
+import { NzDividerModule } from 'ng-zorro-antd/divider';
+
+
+import { NzCollapseModule } from 'ng-zorro-antd/collapse';
 
 
 registerLocaleData(es);
@@ -57,6 +61,7 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
     CarrouselComponent,
     ProductosComponent,
     ProductosDetalleComponent,
+    
   
 
   ],
@@ -76,8 +81,13 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
     HttpClientJsonpModule,
     NzIconModule,
     NzSelectModule,
-    HttpClient,
-    HttpRequest
+    NzCarouselModule,
+    NzCardModule,
+    NzAvatarModule,
+    NzDividerModule,
+    NzCollapseModule,
+    HttpClientModule
+    
 
 
 
@@ -89,4 +99,5 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
   
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
