@@ -13,7 +13,7 @@ export class UsersRequestService {
   public _url: string = 'http://localhost:4000'
 
 
-  createUser(url:string, data:any) {
+  createUser(url:string, data:{}): any{
     let promise = new Promise((resolve, reject)=>{
         this.http.post(url, data)
         .toPromise()

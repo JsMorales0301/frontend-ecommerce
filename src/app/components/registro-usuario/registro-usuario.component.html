@@ -13,30 +13,49 @@
 
         <!-- Username input -->
         <div class=" mb-4">
+          <nz-form-control
+                  
+          [nzValidateStatus]="validateForm.controls['usernameValid']"
+          nzErrorTip="¡Ingresa tu nombre de usuario!"
+        >
           <nz-input-group [nzPrefix]="prefixTemplateUser"  [nzSuffix]="suffixTemplateUserInfo">
             <input type="text" nz-input placeholder="Ingresa tu nombre de usuario"  formControlName = "username"
-            nzValue = "testing.username"/>
+            nzValue = "testing.username" id='usernameValid' nzFor='usernameValid' />
           </nz-input-group>
           <ng-template #prefixTemplateUser><i class="fas fa-user"></i></ng-template>
           <ng-template #suffixTemplateUserInfo><i class="fas fa-info-circle"></i></ng-template>
+        </nz-form-control>
         </div>
+
     
           <!-- First Name input -->
         <div class="row">
           <div class=" col mb-4">
+            <nz-form-control
+                  
+            [nzValidateStatus]="validateForm.controls['nameValid']"
+            nzErrorTip="¿Cómo te llamas?"
+          >
             <nz-input-group >
-              <input type="text" nz-input placeholder="Nombres" formControlName = "name"
+              <input type="text" nz-input placeholder="Nombres" formControlName = "name" id="nameValid" nzFor ='nameValid'
               />
             </nz-input-group>
+            </nz-form-control>
           </div>
     
           
           <!-- Surname input -->
           <div class="col mb-4">
+            <nz-form-control
+                  
+            [nzValidateStatus]="validateForm.controls['surnameValid']"
+            nzErrorTip="¡¿Cual es tu apellido?!"
+          >
             <nz-input-group >
-              <input type="text" nz-input placeholder="Apellidos" formControlName = "lastName"
+              <input type="text" nz-input placeholder="Apellidos" formControlName = "lastName" id="surnameValid" nzFor ='surnameValid'
                />
             </nz-input-group>
+            </nz-form-control>
           </div>
         </div>
       
@@ -62,26 +81,40 @@
     
            <!-- Email -->
            <div class=" mb-4">
+            <nz-form-control
+                  
+            [nzValidateStatus]="validateForm.controls['emailValid']"
+            nzErrorTip="¡Por favor ingresa una dirección de correo electrónico válida!"
+          >
             <nz-input-group [nzPrefix]="prefixTemplateEmail">
               <input type="email" nz-input placeholder="Correo electrónico"  formControlName = "email"
-              nzValue = "testing.email" />
+              nzValue = "testing.email" id="emailValid" nzFor='emailValid'/>
             </nz-input-group>
             <ng-template #prefixTemplateEmail><i class="fas fa-envelope"></i></ng-template>
+            </nz-form-control>
           </div>
     
         <!-- Password input -->
+        <nz-form-control
+                  
+        [nzValidateStatus]="validateForm.controls['passwordValid']"
+        nzErrorTip="¡Recuerda colocar tu contraseña!"
+      >
         <nz-input-group [nzSuffix]="suffixTemplate" [nzPrefix]="prefixTemplateUserLock">
           <input
             [type]="passwordVisible ? 'text' : 'password'"
             nz-input
             placeholder="Ingresa tu contraseña"
             formControlName = "password"
+            id="passwordValid"
+            nzFor='passwordValid'
           />
         </nz-input-group>
         <ng-template #prefixTemplateUserLock><i class="fas fa-key"></i></ng-template>
         <ng-template #suffixTemplate>
           <i nz-icon [nzType]="passwordVisible ? 'eye-invisible' : 'eye'" (click)="passwordVisible = !passwordVisible"></i>
         </ng-template>
+        </nz-form-control>
     
         <br><br>
       
@@ -121,14 +154,7 @@
       </form>
       
     </div>
-<!-- 
-    <div>
-        <form action="">
-          <input type="password" name="password" id="password" placeholder="password"  [(ngModel)] = testing.password>
-          <input type="text" name="username" id="username" placeholder="username" [(ngModel)] = testing.username>
-          <button type="submit" (click)="testingFunction()">Test</button>
-        </form>
-    </div> -->
+
     
 </body>
 

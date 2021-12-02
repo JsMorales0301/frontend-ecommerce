@@ -25,10 +25,11 @@ export class RegistroUsuarioComponent implements OnInit {
       name: [null, [Validators.required]],
       lastName: [null, [Validators.required]],
     });
-   
+   console.log(this.validateForm)
   }
 
   isOkLoading = false;
+
 
 
 
@@ -55,6 +56,10 @@ validateForm!: FormGroup;
   };
 
 // Create user funtionality
+
+
+
+
 createUser():void{
   console.log('showing data from createUser function', this.validateForm.value)
 
