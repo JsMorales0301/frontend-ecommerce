@@ -37,6 +37,7 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzSelectModule } from 'ng-zorro-antd/select';
 import { NzCollapseModule } from 'ng-zorro-antd/collapse';
 
+
 registerLocaleData(es);
 
 const antDesignIcons = AllIcons as {
@@ -75,6 +76,7 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
     NzIconModule,
     NzSelectModule,
     NzCollapseModule
+    
 
 
 

@@ -2,7 +2,7 @@
 
 <body>
   <!-- Section -->
-  <div class="container bg-light" style="width: 100%;">
+  <div class="container bg-light" style="width: 100%">
     <div class="row g-0 pt-4 pl-4 pr-4">
       <!-- col1 -->
       <div class="col-md-5">
@@ -113,13 +113,13 @@
           <br /><br />
           <div class="container">
             <form nz-form action="MongoDB" method="get">
-              <div class="row">
+              <!-- <div class="row">
                 <div class="col-6">
                   <p style="margin: 0" class="text-muted">Cantidad</p>
                   <nz-select
-                    ngModel="lucy"
                     nzAllowClear
                     nzPlaceHolder="Cantidad"
+                    [(ngModel)] = "cantidad"
                   >
                     <nz-option nzValue="1" nzLabel="1"></nz-option>
                     <nz-option nzValue="2" nzLabel="2"></nz-option>
@@ -133,12 +133,20 @@
                   <input
                     style="width: 120px"
                     nz-input
-                    placeholder="[{Cantidad}] * [{precioProducto}]"
+                    placeholder="({{cantidad}} * 20000)"
                     [disabled]="true"
                   />
                 </div>
-              </div>
+              </div> -->
 
+              <label for="cars">Choose a car:</label>
+              <select name="cars" id="cars" form="carform" [(ngModel)] = 'cantidad'>
+                <option value=1>1</option>
+                <option value=2>2</option>
+                <option value=3>3</option>
+                <option value=4>4</option>
+              </select>
+              {{cantidad * monto }}
               <br /><br />
               <button
                 type="button"
@@ -154,38 +162,102 @@
       </div>
     </div>
 
-
     <hr />
 
     <div class="row g0 pt-4">
       <div class="col-7">
-        <nz-collapse nzGhost>
-          <nz-collapse-panel
-            *ngFor="let panel of panels"
-            [nzHeader]="panel.name"
-            [nzActive]="panel.active"
-            [nzDisabled]="panel.disabled"
-          >
-           
-
-            <ul>
-              <li> {{panel.mainFeaturesP | json}}</li>
-              <!-- arreglar ruta y colocar más li -->
-            </ul>
-
-
-
-
-
-
-          
-
-          
-          </nz-collapse-panel>
-        </nz-collapse>
+     
+        <div class="accordion" id="accordionExample">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+              <button
+                class="accordion-button"
+                type="button"
+                data-mdb-toggle="collapse"
+                data-mdb-target="#collapseOne"
+                aria-expanded="true"
+                aria-controls="collapseOne"
+              >
+                {{panels[0].name }}
+              </button>
+            </h2>
+            <div
+              id="collapseOne"
+              class="accordion-collapse collapse show"
+              aria-labelledby="headingOne"
+              data-mdb-parent="#accordionExample"
+            >
+              <div class="accordion-body">
+                <div >
+                    <ul>
+                        <li *ngFor = 'let item of panels[0].mainFeaturesP'>{{item}}</li>
+                 
+                    </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTwo">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-mdb-toggle="collapse"
+                data-mdb-target="#collapseTwo"
+                aria-expanded="false"
+                aria-controls="collapseTwo"
+              >
+              {{panels[1].name }}
+              </button>
+            </h2>
+            <div
+              id="collapseTwo"
+              class="accordion-collapse collapse"
+              aria-labelledby="headingTwo"
+              data-mdb-parent="#accordionExample"
+            >
+              <div class="accordion-body">
+                <ul>
+                    <li *ngFor = 'let item of panels[1].mainDetailsProduct '>{{item}}</li>
+                
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingThree">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-mdb-toggle="collapse"
+                data-mdb-target="#collapseThree"
+                aria-expanded="false"
+                aria-controls="collapseThree"
+              >
+                Accordion Item #3
+              </button>
+            </h2>
+            <div
+              id="collapseThree"
+              class="accordion-collapse collapse"
+              aria-labelledby="headingThree"
+              data-mdb-parent="#accordionExample"
+            >
+              <div class="accordion-body">
+                <strong>This is the third item's accordion body.</strong> It is
+                hidden by default, until the collapse plugin adds the
+                appropriate classes that we use to style each element. These
+                classes control the overall appearance, as well as the showing
+                and hiding via CSS transitions. You can modify any of this with
+                custom CSS or overriding our default variables. It's also worth
+                noting that just about any HTML can go within the
+                <strong>.accordion-body</strong>, though the transition does
+                limit overflow.
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </body>
-
-
