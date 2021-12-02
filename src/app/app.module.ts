@@ -34,6 +34,9 @@ import { NzModalModule } from 'ng-zorro-antd/modal';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzIconModule } from 'ng-zorro-antd/icon';
+import { NzSelectModule } from 'ng-zorro-antd/select';
+import { NzCollapseModule } from 'ng-zorro-antd/collapse';
+
 
 registerLocaleData(es);
 
@@ -70,7 +73,10 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
     ScrollingModule,
     ReactiveFormsModule,
     HttpClientJsonpModule,
-    NzIconModule
+    NzIconModule,
+    NzSelectModule,
+    NzCollapseModule
+    
 
 
 
