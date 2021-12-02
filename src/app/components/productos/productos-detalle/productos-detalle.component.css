@@ -1,0 +1,68 @@
+.card{
+    width: 70vw;
+    height: 60vh;
+    box-shadow: 5px 10px 9px #888888;
+
+}
+
+nz-select {
+    margin: 0 8px 10px 0;
+    width: 120px;
+  }
+
+.carousel{
+    height: 55vh;
+    padding-left: 9px;
+    padding-right: 9px;
+}
+
+
+body{
+    background-color: #ebebeb;
+}
+
+#main-image{
+    
+margin-left: auto;
+margin-right: auto;
+display: block;
+      
+}
+
+
+
+.vertical-line{
+    border-left: solid;
+    border-color: #ebebeb;
+    border-width: 2px;
+    height: 50vh;
+} 
+
+.parent{
+    height:100vh;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 20px;
+    padding-left: 0;
+   
+   
+}
+
+.carousel-indicators [data-mdb-target] {
+background-color: black;
+
+
+}
+
+.carousel-indicators{
+    margin: 0;
+}
+
+.carousel-control-next-icon:after{
+    color: black;
+}
+
+.carousel-control-prev-icon:after{
+    color: black;
+}

@@ -20,6 +20,7 @@ export class LoginComponent{
    
   }
 
+<<<<<<< HEAD
   isVisible = true;
   isOkLoading = false;
 
@@ -52,6 +53,9 @@ export class LoginComponent{
 passwordVisible = false;
 password?: string;
 
+=======
+ 
+>>>>>>> morenofj-wip-feature-detailedPWindow
 // end form functionality
 }
 

@@ -40,6 +40,7 @@ import { NzAvatarModule } from 'ng-zorro-antd/avatar';
 import { NzDividerModule } from 'ng-zorro-antd/divider';
 import { UsersComponent } from './components/administracion/users/users.component';
 
+import { NzCollapseModule } from 'ng-zorro-antd/collapse';
 
 
 registerLocaleData(es);
@@ -83,7 +84,15 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
     NzCarouselModule,
     NzCardModule,
     NzAvatarModule,
-    NzDividerModule
+    NzDividerModule,
+    NzCollapseModule
+    
+
+
+
+
+
+  
   ],
   providers: [ { provide: NZ_I18N, useValue: es_ES }, { provide: NZ_ICONS, useValue: icons } ],
   
