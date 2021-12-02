@@ -39,5 +39,14 @@ h1{
 }
 
 .nav-item a :hover{
-    color: turquoise;
+    /*color: turquoise;*/
+    color: #fe9a40;
+    color: linear-gradient(90deg, #FA709A 0%, #fe9a40 100%);
 }
+
+.vr{
+    color:white;
+    margin: 0;
+    
+}
+
