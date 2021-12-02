@@ -11,19 +11,19 @@ import { NzFormTooltipIcon } from 'ng-zorro-antd/form';
 export class RegistroUsuarioComponent implements OnInit {
 
 
+
+ 
   constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
     this.validateForm = this.fb.group({
       email: [null, [Validators.email, Validators.required]],
       password: [null, [Validators.required]],
-      checkPassword: [null, [Validators.required, this.confirmationValidator]],
-      nickname: [null, [Validators.required]],
+      username: [null, [Validators.required]],
       idType: ['Cc'],
-      identificationValid: [null, [Validators.required]],
-      website: [null, [Validators.required]],
-      captcha: [null, [Validators.required]],
-      agree: [false]
+      userDocument: [null, [Validators.required]],
+      name: [null, [Validators.required]],
+      lastName: [null, [Validators.required]],
     });
    
   }
@@ -32,16 +32,11 @@ export class RegistroUsuarioComponent implements OnInit {
 
 
 
+
+
 // modal functionality
 
 
-  handleOk(): void {
-    this.isOkLoading = true;
-    setTimeout(() => {
-
-      this.isOkLoading = false;
-    }, 3000);
-  }
 
 
 // end modal functionality
@@ -61,7 +56,7 @@ validateForm!: FormGroup;
 
   submitForm(): void {
     if (this.validateForm.valid) {
-      console.log('submit', this.validateForm.value);
+      console.log('form submited', this.validateForm.value);
     } else {
       Object.values(this.validateForm.controls).forEach(control => {
         if (control.invalid) {

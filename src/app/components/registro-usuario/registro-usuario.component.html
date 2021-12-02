@@ -8,13 +8,14 @@
           />
     
      
-      <form class="card-body"   [formGroup]="validateForm" (ngSubmit)="submitForm()">
+      <form class="card-body" [formGroup]="validateForm" (ngSubmit)="submitForm()" >
        
 
         <!-- Username input -->
         <div class=" mb-4">
           <nz-input-group [nzPrefix]="prefixTemplateUser"  [nzSuffix]="suffixTemplateUserInfo">
-            <input type="text" nz-input placeholder="Ingresa tu nombre de usuario" />
+            <input type="text" nz-input placeholder="Ingresa tu nombre de usuario"  formControlName = "username"
+            nzValue = "testing.username"/>
           </nz-input-group>
           <ng-template #prefixTemplateUser><i class="fas fa-user"></i></ng-template>
           <ng-template #suffixTemplateUserInfo><i class="fas fa-info-circle"></i></ng-template>
@@ -24,7 +25,8 @@
         <div class="row">
           <div class=" col mb-4">
             <nz-input-group >
-              <input type="text" nz-input placeholder="Nombres"/>
+              <input type="text" nz-input placeholder="Nombres" formControlName = "name"
+              />
             </nz-input-group>
           </div>
     
@@ -32,7 +34,8 @@
           <!-- Surname input -->
           <div class="col mb-4">
             <nz-input-group >
-              <input type="text" nz-input placeholder="Apellidos" />
+              <input type="text" nz-input placeholder="Apellidos" formControlName = "lastName"
+               />
             </nz-input-group>
           </div>
         </div>
@@ -48,11 +51,11 @@
                     <ng-template #addOnBeforeTemplate>
                       <nz-select formControlName="idType" >
                         <nz-option nzLabel="Cc" nzValue="Cc"></nz-option>
-                        <nz-option nzLabel="Ce" nzValue="Ce"></nz-option>
-                        <nz-option nzLabel="Pa" nzValue="Pa"></nz-option>
+                        <nz-option nzLabel="Ce" nzValue="Ce" ></nz-option>
+                        <nz-option nzLabel="Pa" nzValue="Pa" ></nz-option>
                       </nz-select>
                     </ng-template>
-                    <input formControlName="identificationValid" id="'identificationValid'" nz-input  placeholder="Número de documento" nzFor="identificationValid" type="number"/>
+                    <input formControlName="userDocument" id="'identificationValid'" nz-input  placeholder="Número de documento" nzFor="identificationValid" type="number"  />
                   </nz-input-group>
                 </nz-form-control>
           </div>
@@ -60,7 +63,8 @@
            <!-- Email -->
            <div class=" mb-4">
             <nz-input-group [nzPrefix]="prefixTemplateEmail">
-              <input type="email" nz-input placeholder="Correo electrónico" />
+              <input type="email" nz-input placeholder="Correo electrónico"  formControlName = "email"
+              nzValue = "testing.email" />
             </nz-input-group>
             <ng-template #prefixTemplateEmail><i class="fas fa-envelope"></i></ng-template>
           </div>
@@ -71,7 +75,7 @@
             [type]="passwordVisible ? 'text' : 'password'"
             nz-input
             placeholder="Ingresa tu contraseña"
-     
+            formControlName = "password"
           />
         </nz-input-group>
         <ng-template #prefixTemplateUserLock><i class="fas fa-key"></i></ng-template>
@@ -85,11 +89,11 @@
      
       
         <!-- Submit button -->
-        <button nz-button nzType="primary" type="submit"  class="button-register btn btn-primary btn-block mb-4" (click)="handleOk()">Registrarme</button>
+        <button nz-button nzType="primary" type="submit"  class="button-register btn btn-primary btn-block mb-4"  >Registrarme</button>
     
       
         <!-- Register buttons -->
-        <div class="text-center">
+        <!-- <div class="text-center">
           <p>O regístrate con:</p>
           <button type="button" class="btn btn-primary btn-floating mx-1">
             <i class="fab fa-facebook-f"></i>
@@ -106,7 +110,7 @@
           <button type="button" class="btn btn-primary btn-floating mx-1">
             <i class="fab fa-github"></i>
           </button>
-        </div>
+        </div> -->
 
         <br>
 
@@ -117,6 +121,14 @@
       </form>
       
     </div>
+<!-- 
+    <div>
+        <form action="">
+          <input type="password" name="password" id="password" placeholder="password"  [(ngModel)] = testing.password>
+          <input type="text" name="username" id="username" placeholder="username" [(ngModel)] = testing.username>
+          <button type="submit" (click)="testingFunction()">Test</button>
+        </form>
+    </div> -->
     
 </body>
 

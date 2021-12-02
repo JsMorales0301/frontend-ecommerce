@@ -3,7 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientJsonpModule } from '@angular/common/http';
+import { HttpClient, HttpClientJsonpModule, HttpRequest } from '@angular/common/http';
+
+
 
 import { NZ_ICONS } from 'ng-zorro-antd/icon';
 import { en_US } from 'ng-zorro-antd/i18n';
@@ -35,6 +37,7 @@ import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzSelectModule } from 'ng-zorro-antd/select';
+
 
 registerLocaleData(es);
 
@@ -72,7 +75,9 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
     ReactiveFormsModule,
     HttpClientJsonpModule,
     NzIconModule,
-    NzSelectModule
+    NzSelectModule,
+    HttpClient,
+    HttpRequest
 
 
 
