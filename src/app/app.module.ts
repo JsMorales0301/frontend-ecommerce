@@ -87,7 +87,8 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
     NzCardModule,
     NzAvatarModule,
     NzDividerModule,
-    NzCollapseModule
+    NzCollapseModule,
+    HttpClientModule
     
 
 
