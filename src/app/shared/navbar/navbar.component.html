@@ -60,19 +60,19 @@
             <div class="vr me-3"></div>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
                 <li>
-                    <a class="dropdown-item" (click) = "login = true">Iniciar Sesión</a>
+                    <a class="dropdown-item" routerLink="login">Iniciar Sesión</a>
                 </li>
                 <li routerLink="register">
-                    <a class="dropdown-item" href="#">Registrarme</a>
+                    <a class="dropdown-item" routerLink="registro">Registrarme</a>
                 </li>
                 <!--Usar Ng Template con Ng else 
                     <li><a class="dropdown-item" href="#">Cerrar Sesión</a></li>-->
             </ul>
 
             <!-- Carrito de compras -->
-            <a class="text-reset me-3 dropdown-toggle hidden-arrow" href="#">
+            <a class="text-reset me-3 dropdown-toggle hidden-arrow" routerLink="carrito-compra">
                 <i class="fas fa-shopping-cart fa-lg" id="carrito" ></i>
-                <span class="badge rounded-pill badge-notification bg-danger">1</span>
+                <!-- <span class="badge rounded-pill badge-notification bg-danger"></span> -->
             </a>
 
         </div>

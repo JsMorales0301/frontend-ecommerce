@@ -41,6 +41,7 @@ import { NzDividerModule } from 'ng-zorro-antd/divider';
 import { UsersComponent } from './components/administracion/users/users.component';
 
 import { NzCollapseModule } from 'ng-zorro-antd/collapse';
+import { HomeComponent } from './components/home/home.component';
 
 
 registerLocaleData(es);
@@ -62,6 +63,7 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
     ProductosComponent,
     ProductosDetalleComponent,
     UsersComponent,
+    HomeComponent,
   
 
   ],
