@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { UsersRequestService } from 'src/app/services/users-request.service';
+import { NzFormTooltipIcon } from 'ng-zorro-antd/form';
+
 
 
 @Component({
@@ -7,10 +10,16 @@ import { UsersRequestService } from 'src/app/services/users-request.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
-export class LoginComponent {
-  constructor(public userService: UsersRequestService) {}
+export class LoginComponent implements OnInit {
+  constructor(private fb: FormBuilder, public userService: UsersRequestService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.validateForm = this.fb.group({
+      username: [null, [Validators.required]],
+      password:  [null, [Validators.required]]
+    });
+    console.log(this.validateForm)
+  }
 
   // apart
   isOkLoading = false;
@@ -26,21 +35,21 @@ export class LoginComponent {
   password?: string;
   // end apart
 
-  formLogin = {
-    username: '',
-    password: ''
-  }
+  validateForm!: FormGroup;
+  captchaTooltipIcon: NzFormTooltipIcon = {
+    type: 'info-circle',
+    theme: 'twotone'
+  }; 
 
-  
-login(formLogin: any):void{
-  console.log('showing data from createUser function', formLogin)
+login():void{
+  console.log('showing data from createUser function', this.validateForm.value)
 
   let login = {
     host: this.userService._url,
     path: '/api/auth/login',
     data: {
-      password: this.formLogin.password,
-      username: this.formLogin.username,
+      password: this.validateForm.value.password,
+      username: this.validateForm.value.username
      
 
     }
@@ -50,5 +59,18 @@ login(formLogin: any):void{
   })
 };
  
-
+submitForm(): void {
+  if (this.validateForm.valid) {
+    console.log('form submited', this.validateForm.value);
+    this.login();
+    
+  } else {
+    Object.values(this.validateForm.controls).forEach(control => {
+      if (control.invalid) {
+        control.markAsDirty();
+        control.updateValueAndValidity({ onlySelf: true });
+      }
+    });
+  }
+}
 }

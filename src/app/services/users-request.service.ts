@@ -19,7 +19,6 @@ export class UsersRequestService {
         this.http.post(url, data)
         .toPromise()
         .then((res: any) =>{
-          console.log(res)
           resolve(res)
         })
     })
