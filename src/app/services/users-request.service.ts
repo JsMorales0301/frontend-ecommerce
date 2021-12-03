@@ -1,4 +1,3 @@
-
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpRequest } from '@angular/common/http';
 
@@ -16,9 +15,23 @@ export class UsersRequestService {
 
   login(url:string, data:any): any{
     let promise = new Promise((resolve, reject)=>{
+      this.http.post(url, data)
+      .toPromise()
+      .then((res: any) =>{
+        console.log(res)
+        resolve(res)
+      })
+  })
+  return promise
+}
+
+
+  createUser(url:string, data:any): any{
+    let promise = new Promise((resolve, reject)=>{
         this.http.post(url, data)
         .toPromise()
         .then((res: any) =>{
+          console.log(res)
           resolve(res)
         })
     })
