@@ -1,5 +1,7 @@
 import { prepareEventListenerParameters } from '@angular/compiler/src/render3/view/template';
 import { Component, OnInit } from '@angular/core';
+import { IProduct } from '../../../interfaces/producto.interface';
+import { ProductoService } from '../../../services/producto.service';
 
 
 
@@ -10,8 +12,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductosDetalleComponent implements OnInit {
 
-   cantidad: number = 1
-   monto: number = 20000
+  cantidad: number = 1
+  monto: number = 20000
+  products: IProduct[] = [];
 
   panels = [
     {
@@ -51,12 +54,10 @@ export class ProductosDetalleComponent implements OnInit {
   ];
 
   
-  constructor() { }
+  constructor( private productService: ProductoService ) { }
 
   ngOnInit(): void {
-
-  //  console.log(panels[0].mainFeaturesP?.detail1)
-
+    this.products = this.productService.products;
   }
 
 }

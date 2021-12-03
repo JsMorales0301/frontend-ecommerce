@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CarritoService } from '../../services/carrito.service';
 
 
 @Component({
@@ -11,7 +12,7 @@ export class NavbarComponent {
 
   
   public login : boolean = false;
-  constructor() { }
+  constructor( public carritoS: CarritoService ) { }
 
 
 

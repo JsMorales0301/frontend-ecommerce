@@ -3,6 +3,7 @@ import { NavbarComponent } from 'src/app/shared/navbar/navbar.component';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { UsersRequestService } from 'src/app/services/users-request.service';
 import { NzFormTooltipIcon } from 'ng-zorro-antd/form';
+import { Router } from '@angular/router';
 
 
 
@@ -12,7 +13,7 @@ import { NzFormTooltipIcon } from 'ng-zorro-antd/form';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-  constructor(private fb: FormBuilder, public userService: UsersRequestService) {}
+  constructor( private router: Router, private fb: FormBuilder, public userService: UsersRequestService) {}
 
   ngOnInit(): void {
     this.validateForm = this.fb.group({
@@ -58,6 +59,7 @@ login():void{
   this.userService.login(login.host + login.path, login.data).then((res:any) =>{
     console.log(res)
   })
+  this.router.navigate([''])
 };
  
 submitForm(): void {

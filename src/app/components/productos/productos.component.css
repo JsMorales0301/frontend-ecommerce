@@ -121,3 +121,14 @@ button.carousel-control-next{
   background-color: #fe9a40;
   background-image: linear-gradient(90deg, #FA709A 0%, #fe9a40 100%);
 }
+
+.image {
+  justify-content: center;
+  align-items: center;
+}
+
+img {
+  width: 200px;
+  height: 200px;
+  margin: auto;
+}

@@ -1,6 +1,6 @@
 <!--<h2>MODIFICADO</h2>-->
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-dark ">
+<nav class="navbar navbar-expand-lg fixed-top navbar-light bg-dark ">
     <!-- Container wrapper -->
     <div class="container-fluid ">
         <!-- Toggle button -->
@@ -72,7 +72,7 @@
             <!-- Carrito de compras -->
             <a class="text-reset me-3 dropdown-toggle hidden-arrow" routerLink="carrito-compra">
                 <i class="fas fa-shopping-cart fa-lg" id="carrito" ></i>
-                <!-- <span class="badge rounded-pill badge-notification bg-danger"></span> -->
+                <span class="badge rounded-pill badge-notification bg-danger">{{ this.carritoS.productos.length }}</span>
             </a>
 
         </div>

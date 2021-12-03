@@ -10,8 +10,6 @@
         class="active indicator indicator1" aria-current="true" aria-label="Slide 1"></button>
       <button type="button" data-mdb-target="#carouselExampleIndicators" data-mdb-slide-to="1" aria-label="Slide 2"
         class="indicator indicator1"></button>
-      <button type="button" data-mdb-target="#carouselExampleIndicators" data-mdb-slide-to="2" aria-label="Slide 3"
-        class="indicator indicator1"></button>
     </div>
     <div class="carousel-inner ">
       <div class="carousel-item active">
@@ -19,39 +17,33 @@
           <div class="row p-5 px-4">
             <div class="col-sm-3">
               <nz-card style="width:300px;" [nzCover]="coverTemplate"
-                [nzActions]="[actionSetting, actionEdit, actionEllipsis]">
-                <nz-card-meta nzTitle="Card title" nzDescription="This is the description" [nzAvatar]="avatarTemplate">
+                [nzActions]="[actionSetting,actionEllipsis1]">
+                <nz-card-meta [nzTitle]="products[0].nombre" [nzDescription]="products[0].precio.toString() | number">
                 </nz-card-meta>
               </nz-card>
-              <ng-template #avatarTemplate>
-                <nz-avatar nzSrc="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"></nz-avatar>
-              </ng-template>
-              <ng-template #coverTemplate>
-                <img alt="example" src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png" />
+              <ng-template #coverTemplate class="image">
+                <img alt="example" [src]="products[0].img_url" />
               </ng-template>
               <ng-template #actionSetting>
                 <a routerLink="product-detail">
-                  <i nz-icon nzType="setting"></i>
+                  <i nz-icon nzType="info" nzTheme="outline"></i>
                 </a>
               </ng-template>
-              <ng-template #actionEdit>
-                <i nz-icon nzType="edit"></i>
-              </ng-template>
-              <ng-template #actionEllipsis>
-                <i nz-icon nzType="ellipsis"></i>
+              <ng-template #actionEllipsis1>
+                <a (click)="addProductService(products[0])">
+                  <i nz-icon nzType="shopping-cart" nzTheme="outline"></i>
+                </a>
               </ng-template>
             </div>
             <div class="col-sm-3">
-              <nz-card style="width:300px;" [nzCover]="coverTemplate"
-                [nzActions]="[actionSetting, actionEdit, actionEllipsis]">
-                <nz-card-meta nzTitle="Card title" nzDescription="This is the description" [nzAvatar]="avatarTemplate">
+              <nz-card style="width:300px;" [nzCover]="cover"
+                [nzActions]="[actionSetting, actionEllipsis2]">
+                <nz-card-meta [nzTitle]="products[1].nombre" [nzDescription]="products[0].precio.toString() | number">
                 </nz-card-meta>
               </nz-card>
-              <ng-template #avatarTemplate>
-                <nz-avatar nzSrc="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"></nz-avatar>
-              </ng-template>
-              <ng-template #coverTemplate>
-                <img alt="example" src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png" />
+              
+              <ng-template #cover>
+                <img alt="example" [src]="products[1].img_url" />
               </ng-template>
               <ng-template #actionSetting>
                 <i nz-icon nzType="setting"></i>
@@ -59,21 +51,23 @@
               <ng-template #actionEdit>
                 <i nz-icon nzType="edit"></i>
               </ng-template>
-              <ng-template #actionEllipsis>
-                <i nz-icon nzType="ellipsis"></i>
+              <ng-template #actionEllipsis2>
+                <a (click)="addProductService(products[1])">
+                  <i nz-icon nzType="shopping-cart" nzTheme="outline"></i>
+                </a>
               </ng-template>
             </div>
             <div class="col-sm-3">
-              <nz-card style="width: 300px;;" [nzCover]="coverTemplate"
-                [nzActions]="[actionSetting, actionEdit, actionEllipsis]">
-                <nz-card-meta nzTitle="Card title" nzDescription="This is the description" [nzAvatar]="avatarTemplate">
+              <nz-card style="width:300px;" [nzCover]="cover1"
+                [nzActions]="[actionSetting,  actionEllipsis3]">
+                <nz-card-meta [nzTitle]="products[2].nombre" [nzDescription]="products[2].precio.toString() | number">
                 </nz-card-meta>
               </nz-card>
               <ng-template #avatarTemplate>
-                <nz-avatar nzSrc="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"></nz-avatar>
+                <nz-avatar nzSrc=""></nz-avatar>
               </ng-template>
-              <ng-template #coverTemplate>
-                <img alt="example" src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png" />
+              <ng-template #cover1>
+                <img alt="example" [src]="products[2].img_url" />
               </ng-template>
               <ng-template #actionSetting>
                 <i nz-icon nzType="setting"></i>
@@ -81,21 +75,20 @@
               <ng-template #actionEdit>
                 <i nz-icon nzType="edit"></i>
               </ng-template>
-              <ng-template #actionEllipsis>
-                <i nz-icon nzType="ellipsis"></i>
+              <ng-template #actionEllipsis3>
+                <a (click)="addProductService(products[2])">
+                  <i nz-icon nzType="shopping-cart" nzTheme="outline"></i>
+                </a>
               </ng-template>
             </div>
             <div class="col-sm-3">
-              <nz-card style="width: 300px;;" [nzCover]="coverTemplate"
-                [nzActions]="[actionSetting, actionEdit, actionEllipsis]">
-                <nz-card-meta nzTitle="Card title" nzDescription="This is the description" [nzAvatar]="avatarTemplate">
+              <nz-card style="width:300px;" [nzCover]="cover2"
+                [nzActions]="[actionSetting,  actionEllipsis4]">
+                <nz-card-meta [nzTitle]="products[3].nombre" [nzDescription]="products[3].precio.toString() | number">
                 </nz-card-meta>
               </nz-card>
-              <ng-template #avatarTemplate>
-                <nz-avatar nzSrc="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"></nz-avatar>
-              </ng-template>
-              <ng-template #coverTemplate>
-                <img alt="example" src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png" />
+              <ng-template #cover2>
+                <img alt="example" [src]="products[3].img_url" />
               </ng-template>
               <ng-template #actionSetting>
                 <i nz-icon nzType="setting"></i>
@@ -103,8 +96,10 @@
               <ng-template #actionEdit>
                 <i nz-icon nzType="edit"></i>
               </ng-template>
-              <ng-template #actionEllipsis>
-                <i nz-icon nzType="ellipsis"></i>
+              <ng-template #actionEllipsis4>
+                <a (click)="addProductService(products[3])">
+                  <i nz-icon nzType="shopping-cart" nzTheme="outline"></i>
+                </a>
               </ng-template>
             </div>
           </div>
@@ -114,16 +109,13 @@
         <div class="container d-flex justify-content-evenly">
           <div class="row p-5 px-4">
             <div class="col-sm-3">
-              <nz-card style="width:300px;" [nzCover]="coverTemplate"
-                [nzActions]="[actionSetting, actionEdit, actionEllipsis]">
-                <nz-card-meta nzTitle="Card title" nzDescription="This is the description" [nzAvatar]="avatarTemplate">
+              <nz-card style="width:300px;" [nzCover]="cover3"
+                [nzActions]="[actionSetting,  actionEllipsis5]">
+                <nz-card-meta [nzTitle]="products[4].nombre" [nzDescription]="products[4].precio.toString() | number" >
                 </nz-card-meta>
               </nz-card>
-              <ng-template #avatarTemplate>
-                <nz-avatar nzSrc="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"></nz-avatar>
-              </ng-template>
-              <ng-template #coverTemplate>
-                <img alt="example" src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png" />
+              <ng-template #cover3>
+                <img alt="example" [src]="products[4].img_url" />
               </ng-template>
               <ng-template #actionSetting>
                 <i nz-icon nzType="setting"></i>
@@ -131,21 +123,21 @@
               <ng-template #actionEdit>
                 <i nz-icon nzType="edit"></i>
               </ng-template>
-              <ng-template #actionEllipsis>
-                <i nz-icon nzType="ellipsis"></i>
+              <ng-template #actionEllipsis5>
+                <a (click)="addProductService(products[4])">
+                  <i nz-icon nzType="shopping-cart" nzTheme="outline"></i>
+                </a>
               </ng-template>
             </div>
             <div class="col-sm-3">
-              <nz-card style="width:300px;" [nzCover]="coverTemplate"
-                [nzActions]="[actionSetting, actionEdit, actionEllipsis]">
-                <nz-card-meta nzTitle="Card title" nzDescription="This is the description" [nzAvatar]="avatarTemplate">
+              <nz-card style="width:300px;" [nzCover]="cover4"
+                [nzActions]="[actionSetting,  actionEllipsis6]">
+                <nz-card-meta [nzTitle]="products[5].nombre" [nzDescription]="products[5].precio.toString() | number" >
                 </nz-card-meta>
               </nz-card>
-              <ng-template #avatarTemplate>
-                <nz-avatar nzSrc="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"></nz-avatar>
-              </ng-template>
-              <ng-template #coverTemplate>
-                <img alt="example" src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png" />
+
+              <ng-template #cover4>
+                <img alt="example" [src]="products[5].img_url" />
               </ng-template>
               <ng-template #actionSetting>
                 <i nz-icon nzType="setting"></i>
@@ -153,21 +145,21 @@
               <ng-template #actionEdit>
                 <i nz-icon nzType="edit"></i>
               </ng-template>
-              <ng-template #actionEllipsis>
-                <i nz-icon nzType="ellipsis"></i>
+              <ng-template #actionEllipsis6>
+                <a (click)="addProductService(products[5])">
+                  <i nz-icon nzType="shopping-cart" nzTheme="outline"></i>
+                </a>
               </ng-template>
             </div>
             <div class="col-sm-3">
-              <nz-card style="width: 300px;;" [nzCover]="coverTemplate"
-                [nzActions]="[actionSetting, actionEdit, actionEllipsis]">
-                <nz-card-meta nzTitle="Card title" nzDescription="This is the description" [nzAvatar]="avatarTemplate">
+              <nz-card style="width:300px;" [nzCover]="cover5"
+                [nzActions]="[actionSetting,  actionEllipsis7]">
+                <nz-card-meta [nzTitle]="products[6].nombre" [nzDescription]="products[6].precio.toString() | number">
                 </nz-card-meta>
               </nz-card>
-              <ng-template #avatarTemplate>
-                <nz-avatar nzSrc="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"></nz-avatar>
-              </ng-template>
-              <ng-template #coverTemplate>
-                <img alt="example" src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png" />
+              
+              <ng-template #cover5>
+                <img alt="example" [src]="products[6].img_url" />
               </ng-template>
               <ng-template #actionSetting>
                 <i nz-icon nzType="setting"></i>
@@ -175,21 +167,21 @@
               <ng-template #actionEdit>
                 <i nz-icon nzType="edit"></i>
               </ng-template>
-              <ng-template #actionEllipsis>
-                <i nz-icon nzType="ellipsis"></i>
+              <ng-template #actionEllipsis7>
+                <a (click)="addProductService(products[6])">
+                  <i nz-icon nzType="shopping-cart" nzTheme="outline"></i>
+                </a>
               </ng-template>
             </div>
             <div class="col-sm-3">
-              <nz-card style="width: 300px;;" [nzCover]="coverTemplate"
-                [nzActions]="[actionSetting, actionEdit, actionEllipsis]">
-                <nz-card-meta nzTitle="Card title" nzDescription="This is the description" [nzAvatar]="avatarTemplate">
+              <nz-card style="width:300px;" [nzCover]="cover6"
+                [nzActions]="[actionSetting,  actionEllipsis8]">
+                <nz-card-meta [nzTitle]="products[7].nombre" [nzDescription]="products[7].precio.toString() | number" >
                 </nz-card-meta>
               </nz-card>
-              <ng-template #avatarTemplate>
-                <nz-avatar nzSrc="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"></nz-avatar>
-              </ng-template>
-              <ng-template #coverTemplate>
-                <img alt="example" src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png" />
+              
+              <ng-template #cover6>
+                <img alt="example" [src]="products[7].img_url" />
               </ng-template>
               <ng-template #actionSetting>
                 <i nz-icon nzType="setting"></i>
@@ -197,108 +189,15 @@
               <ng-template #actionEdit>
                 <i nz-icon nzType="edit"></i>
               </ng-template>
-              <ng-template #actionEllipsis>
-                <i nz-icon nzType="ellipsis"></i>
+              <ng-template #actionEllipsis8>
+                <a (click)="addProductService(products[7])">
+                  <i nz-icon nzType="shopping-cart" nzTheme="outline"></i>
+                </a>
               </ng-template>
             </div>
           </div>
         </div>
       </div>
-      <div class="carousel-item">
-        <div class="container d-flex justify-content-evenly">
-          <div class="row p-5 px-4">
-            <div class="col-sm-3">
-              <nz-card style="width:300px;" [nzCover]="coverTemplate"
-                [nzActions]="[actionSetting, actionEdit, actionEllipsis]">
-                <nz-card-meta nzTitle="Card title" nzDescription="This is the description" [nzAvatar]="avatarTemplate">
-                </nz-card-meta>
-              </nz-card>
-              <ng-template #avatarTemplate>
-                <nz-avatar nzSrc="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"></nz-avatar>
-              </ng-template>
-              <ng-template #coverTemplate>
-                <img alt="example" src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png" />
-              </ng-template>
-              <ng-template #actionSetting>
-                <i nz-icon nzType="setting"></i>
-              </ng-template>
-              <ng-template #actionEdit>
-                <i nz-icon nzType="edit"></i>
-              </ng-template>
-              <ng-template #actionEllipsis>
-                <i nz-icon nzType="ellipsis"></i>
-              </ng-template>
-            </div>
-            <div class="col-sm-3">
-              <nz-card style="width:300px;" [nzCover]="coverTemplate"
-                [nzActions]="[actionSetting, actionEdit, actionEllipsis]">
-                <nz-card-meta nzTitle="Card title" nzDescription="This is the description" [nzAvatar]="avatarTemplate">
-                </nz-card-meta>
-              </nz-card>
-              <ng-template #avatarTemplate>
-                <nz-avatar nzSrc="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"></nz-avatar>
-              </ng-template>
-              <ng-template #coverTemplate>
-                <img alt="example" src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png" />
-              </ng-template>
-              <ng-template #actionSetting>
-                <i nz-icon nzType="setting"></i>
-              </ng-template>
-              <ng-template #actionEdit>
-                <i nz-icon nzType="edit"></i>
-              </ng-template>
-              <ng-template #actionEllipsis>
-                <i nz-icon nzType="ellipsis"></i>
-              </ng-template>
-            </div>
-            <div class="col-sm-3">
-              <nz-card style="width: 300px;;" [nzCover]="coverTemplate"
-                [nzActions]="[actionSetting, actionEdit, actionEllipsis]">
-                <nz-card-meta nzTitle="Card title" nzDescription="This is the description" [nzAvatar]="avatarTemplate">
-                </nz-card-meta>
-              </nz-card>
-              <ng-template #avatarTemplate>
-                <nz-avatar nzSrc="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"></nz-avatar>
-              </ng-template>
-              <ng-template #coverTemplate>
-                <img alt="example" src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png" />
-              </ng-template>
-              <ng-template #actionSetting>
-                <i nz-icon nzType="setting"></i>
-              </ng-template>
-              <ng-template #actionEdit>
-                <i nz-icon nzType="edit"></i>
-              </ng-template>
-              <ng-template #actionEllipsis>
-                <i nz-icon nzType="ellipsis"></i>
-              </ng-template>
-            </div>
-            <div class="col-sm-3">
-              <nz-card style="width: 300px;;" [nzCover]="coverTemplate"
-                [nzActions]="[actionSetting, actionEdit, actionEllipsis]">
-                <nz-card-meta nzTitle="Card title" nzDescription="This is the description" [nzAvatar]="avatarTemplate">
-                </nz-card-meta>
-              </nz-card>
-              <ng-template #avatarTemplate>
-                <nz-avatar nzSrc="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"></nz-avatar>
-              </ng-template>
-              <ng-template #coverTemplate>
-                <img alt="example" src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png" />
-              </ng-template>
-              <ng-template #actionSetting>
-                <i nz-icon nzType="setting"></i>
-              </ng-template>
-              <ng-template #actionEdit>
-                <i nz-icon nzType="edit"></i>
-              </ng-template>
-              <ng-template #actionEllipsis>
-                <i nz-icon nzType="ellipsis"></i>
-              </ng-template>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
     <button class="carousel-control-prev prev1" type="button" data-mdb-target="#carouselExampleIndicators"
       data-mdb-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -323,100 +222,97 @@
         class="active indicator indicator2" aria-current="true" aria-label="Slide 1"></button>
       <button type="button" data-mdb-target="#carouselExampleIndicators" data-mdb-slide-to="1" aria-label="Slide 2"
         class="indicator indicator2"></button>
-      <button type="button" data-mdb-target="#carouselExampleIndicators" data-mdb-slide-to="2" aria-label="Slide 3"
-        class="indicator indicator2"></button>
     </div>
     <div class="carousel-inner ">
       <div class="carousel-item active">
         <div class="container d-flex justify-content-evenly">
           <div class="row p-5 px-4">
             <div class="col-sm-3">
-              <nz-card style="width:300px;" [nzCover]="coverTemplate"
-                [nzActions]="[actionSetting, actionEdit, actionEllipsis]">
-                <nz-card-meta nzTitle="Card title" nzDescription="This is the description" [nzAvatar]="avatarTemplate">
-                </nz-card-meta>
-              </nz-card>
-              <ng-template #avatarTemplate>
-                <nz-avatar nzSrc="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"></nz-avatar>
-              </ng-template>
-              <ng-template #coverTemplate>
-                <img alt="example" src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png" />
-              </ng-template>
-              <ng-template #actionSetting>
-                <i nz-icon nzType="setting"></i>
-              </ng-template>
-              <ng-template #actionEdit>
-                <i nz-icon nzType="edit"></i>
-              </ng-template>
-              <ng-template #actionEllipsis>
-                <i nz-icon nzType="ellipsis"></i>
-              </ng-template>
+              <nz-card style="width:300px;" [nzCover]="cover7"
+              [nzActions]="[actionSetting,  actionEllipsis9]">
+              <nz-card-meta [nzTitle]="products[8].nombre" [nzDescription]="products[8].precio.toString() | number">
+              </nz-card-meta>
+            </nz-card>
+            <ng-template #cover7>
+              <img alt="example" [src]="products[8].img_url" />
+            </ng-template>
+            <ng-template #actionSetting>
+              <i nz-icon nzType="setting"></i>
+            </ng-template>
+            <ng-template #actionEdit>
+              <i nz-icon nzType="edit"></i>
+            </ng-template>
+            <ng-template #actionEllipsis9>
+              <a (click)="addProductService(products[8])">
+                  <i nz-icon nzType="shopping-cart" nzTheme="outline"></i>
+                </a>
+            </ng-template>
             </div>
             <div class="col-sm-3">
-              <nz-card style="width:300px;" [nzCover]="coverTemplate"
-                [nzActions]="[actionSetting, actionEdit, actionEllipsis]">
-                <nz-card-meta nzTitle="Card title" nzDescription="This is the description" [nzAvatar]="avatarTemplate">
-                </nz-card-meta>
-              </nz-card>
-              <ng-template #avatarTemplate>
-                <nz-avatar nzSrc="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"></nz-avatar>
-              </ng-template>
-              <ng-template #coverTemplate>
-                <img alt="example" src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png" />
-              </ng-template>
-              <ng-template #actionSetting>
-                <i nz-icon nzType="setting"></i>
-              </ng-template>
-              <ng-template #actionEdit>
-                <i nz-icon nzType="edit"></i>
-              </ng-template>
-              <ng-template #actionEllipsis>
-                <i nz-icon nzType="ellipsis"></i>
-              </ng-template>
+              <nz-card style="width:300px;" [nzCover]="cover8"
+              [nzActions]="[actionSetting,  actionEllipsis10]">
+              <nz-card-meta [nzTitle]="products[9].nombre" [nzDescription]="products[9].precio.toString() | number">
+              </nz-card-meta>
+            </nz-card>
+            
+            <ng-template #cover8>
+              <img alt="example" [src]="products[9].img_url" />
+            </ng-template>
+            <ng-template #actionSetting>
+              <i nz-icon nzType="setting"></i>
+            </ng-template>
+            <ng-template #actionEdit>
+              <i nz-icon nzType="edit"></i>
+            </ng-template>
+            <ng-template #actionEllipsis10>
+              <a (click)="addProductService(products[9])">
+                  <i nz-icon nzType="shopping-cart" nzTheme="outline"></i>
+                </a>
+            </ng-template>
             </div>
             <div class="col-sm-3">
-              <nz-card style="width: 300px;;" [nzCover]="coverTemplate"
-                [nzActions]="[actionSetting, actionEdit, actionEllipsis]">
-                <nz-card-meta nzTitle="Card title" nzDescription="This is the description" [nzAvatar]="avatarTemplate">
-                </nz-card-meta>
-              </nz-card>
-              <ng-template #avatarTemplate>
-                <nz-avatar nzSrc="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"></nz-avatar>
-              </ng-template>
-              <ng-template #coverTemplate>
-                <img alt="example" src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png" />
-              </ng-template>
-              <ng-template #actionSetting>
-                <i nz-icon nzType="setting"></i>
-              </ng-template>
-              <ng-template #actionEdit>
-                <i nz-icon nzType="edit"></i>
-              </ng-template>
-              <ng-template #actionEllipsis>
-                <i nz-icon nzType="ellipsis"></i>
-              </ng-template>
+              <nz-card style="width:300px;" [nzCover]="cover9"
+              [nzActions]="[actionSetting,  actionEllipsis11]">
+              <nz-card-meta [nzTitle]="products[10].nombre" [nzDescription]="products[10].precio.toString() | number">
+              </nz-card-meta>
+            </nz-card>
+            
+            <ng-template #cover9>
+              <img alt="example" [src]="products[10].img_url" />
+            </ng-template>
+            <ng-template #actionSetting>
+              <i nz-icon nzType="setting"></i>
+            </ng-template>
+            <ng-template #actionEdit>
+              <i nz-icon nzType="edit"></i>
+            </ng-template>
+            <ng-template #actionEllipsis11>
+              <a (click)="addProductService(products[10])">
+                  <i nz-icon nzType="shopping-cart" nzTheme="outline"></i>
+                </a>
+            </ng-template>
             </div>
             <div class="col-sm-3">
-              <nz-card style="width: 300px;;" [nzCover]="coverTemplate"
-                [nzActions]="[actionSetting, actionEdit, actionEllipsis]">
-                <nz-card-meta nzTitle="Card title" nzDescription="This is the description" [nzAvatar]="avatarTemplate">
-                </nz-card-meta>
-              </nz-card>
-              <ng-template #avatarTemplate>
-                <nz-avatar nzSrc="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"></nz-avatar>
-              </ng-template>
-              <ng-template #coverTemplate>
-                <img alt="example" src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png" />
-              </ng-template>
-              <ng-template #actionSetting>
-                <i nz-icon nzType="setting"></i>
-              </ng-template>
-              <ng-template #actionEdit>
-                <i nz-icon nzType="edit"></i>
-              </ng-template>
-              <ng-template #actionEllipsis>
-                <i nz-icon nzType="ellipsis"></i>
-              </ng-template>
+              <nz-card style="width:300px;" [nzCover]="cover10"
+              [nzActions]="[actionSetting,  actionEllipsis12]">
+              <nz-card-meta [nzTitle]="products[11].nombre" [nzDescription]="products[11].precio.toString() | number" >
+              </nz-card-meta>
+            </nz-card>
+            
+            <ng-template #cover10>
+              <img alt="example" [src]="products[11].img_url" />
+            </ng-template>
+            <ng-template #actionSetting>
+              <i nz-icon nzType="setting"></i>
+            </ng-template>
+            <ng-template #actionEdit>
+              <i nz-icon nzType="edit"></i>
+            </ng-template>
+            <ng-template #actionEllipsis12>
+              <a (click)="addProductService(products[11])">
+                  <i nz-icon nzType="shopping-cart" nzTheme="outline"></i>
+                </a>
+            </ng-template>
             </div>
           </div>
         </div>
@@ -425,191 +321,96 @@
         <div class="container d-flex justify-content-evenly">
           <div class="row p-5 px-4">
             <div class="col-sm-3">
-              <nz-card style="width:300px;" [nzCover]="coverTemplate"
-                [nzActions]="[actionSetting, actionEdit, actionEllipsis]">
-                <nz-card-meta nzTitle="Card title" nzDescription="This is the description" [nzAvatar]="avatarTemplate">
-                </nz-card-meta>
-              </nz-card>
-              <ng-template #avatarTemplate>
-                <nz-avatar nzSrc="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"></nz-avatar>
-              </ng-template>
-              <ng-template #coverTemplate>
-                <img alt="example" src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png" />
-              </ng-template>
-              <ng-template #actionSetting>
-                <i nz-icon nzType="setting"></i>
-              </ng-template>
-              <ng-template #actionEdit>
-                <i nz-icon nzType="edit"></i>
-              </ng-template>
-              <ng-template #actionEllipsis>
-                <i nz-icon nzType="ellipsis"></i>
-              </ng-template>
+              <nz-card style="width:300px;" [nzCover]="cover11"
+              [nzActions]="[actionSetting,  actionEllipsis13]">
+              <nz-card-meta [nzTitle]="products[12].nombre" [nzDescription]="products[12].precio.toString() | number">
+              </nz-card-meta>
+            </nz-card>
+            
+            <ng-template #cover11>
+              <img alt="example" [src]="products[12].img_url" />
+            </ng-template>
+            <ng-template #actionSetting>
+              <i nz-icon nzType="setting"></i>
+            </ng-template>
+            <ng-template #actionEdit>
+              <i nz-icon nzType="edit"></i>
+            </ng-template>
+            <ng-template #actionEllipsis13>
+              <a (click)="addProductService(products[12])">
+                  <i nz-icon nzType="shopping-cart" nzTheme="outline"></i>
+                </a>
+            </ng-template>
             </div>
             <div class="col-sm-3">
-              <nz-card style="width:300px;" [nzCover]="coverTemplate"
-                [nzActions]="[actionSetting, actionEdit, actionEllipsis]">
-                <nz-card-meta nzTitle="Card title" nzDescription="This is the description" [nzAvatar]="avatarTemplate">
-                </nz-card-meta>
-              </nz-card>
-              <ng-template #avatarTemplate>
-                <nz-avatar nzSrc="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"></nz-avatar>
-              </ng-template>
-              <ng-template #coverTemplate>
-                <img alt="example" src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png" />
-              </ng-template>
-              <ng-template #actionSetting>
-                <i nz-icon nzType="setting"></i>
-              </ng-template>
-              <ng-template #actionEdit>
-                <i nz-icon nzType="edit"></i>
-              </ng-template>
-              <ng-template #actionEllipsis>
-                <i nz-icon nzType="ellipsis"></i>
-              </ng-template>
+              <nz-card style="width:300px;" [nzCover]="cover12"
+              [nzActions]="[actionSetting,  actionEllipsis14]">
+              <nz-card-meta [nzTitle]="products[13].nombre" [nzDescription]="products[13].precio.toString() | number" >
+              </nz-card-meta>
+            </nz-card>
+           
+            <ng-template #cover12>
+              <img alt="example" [src]="products[13].img_url" />
+            </ng-template>
+            <ng-template #actionSetting>
+              <i nz-icon nzType="setting"></i>
+            </ng-template>
+            <ng-template #actionEdit>
+              <i nz-icon nzType="edit"></i>
+            </ng-template>
+            <ng-template #actionEllipsis14>
+              <a (click)="addProductService(products[13])">
+                  <i nz-icon nzType="shopping-cart" nzTheme="outline"></i>
+                </a>
+            </ng-template>
             </div>
             <div class="col-sm-3">
-              <nz-card style="width: 300px;;" [nzCover]="coverTemplate"
-                [nzActions]="[actionSetting, actionEdit, actionEllipsis]">
-                <nz-card-meta nzTitle="Card title" nzDescription="This is the description" [nzAvatar]="avatarTemplate">
-                </nz-card-meta>
-              </nz-card>
-              <ng-template #avatarTemplate>
-                <nz-avatar nzSrc="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"></nz-avatar>
-              </ng-template>
-              <ng-template #coverTemplate>
-                <img alt="example" src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png" />
-              </ng-template>
-              <ng-template #actionSetting>
-                <i nz-icon nzType="setting"></i>
-              </ng-template>
-              <ng-template #actionEdit>
-                <i nz-icon nzType="edit"></i>
-              </ng-template>
-              <ng-template #actionEllipsis>
-                <i nz-icon nzType="ellipsis"></i>
-              </ng-template>
+              <nz-card style="width:300px;" [nzCover]="cover13"
+              [nzActions]="[actionSetting,  actionEllipsis15]">
+              <nz-card-meta [nzTitle]="products[14].nombre" [nzDescription]="products[14].precio.toString() | number">
+              </nz-card-meta>
+            </nz-card>
+            
+            <ng-template #cover13>
+              <img alt="example" [src]="products[14].img_url" />
+            </ng-template>
+            <ng-template #actionSetting>
+              <i nz-icon nzType="setting"></i>
+            </ng-template>
+            <ng-template #actionEdit>
+              <i nz-icon nzType="edit"></i>
+            </ng-template>
+            <ng-template #actionEllipsis15>
+              <a (click)="addProductService(products[14])">
+                  <i nz-icon nzType="shopping-cart" nzTheme="outline"></i>
+                </a>
+            </ng-template>
             </div>
             <div class="col-sm-3">
-              <nz-card style="width: 300px;;" [nzCover]="coverTemplate"
-                [nzActions]="[actionSetting, actionEdit, actionEllipsis]">
-                <nz-card-meta nzTitle="Card title" nzDescription="This is the description" [nzAvatar]="avatarTemplate">
-                </nz-card-meta>
-              </nz-card>
-              <ng-template #avatarTemplate>
-                <nz-avatar nzSrc="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"></nz-avatar>
-              </ng-template>
-              <ng-template #coverTemplate>
-                <img alt="example" src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png" />
-              </ng-template>
-              <ng-template #actionSetting>
-                <i nz-icon nzType="setting"></i>
-              </ng-template>
-              <ng-template #actionEdit>
-                <i nz-icon nzType="edit"></i>
-              </ng-template>
-              <ng-template #actionEllipsis>
-                <i nz-icon nzType="ellipsis"></i>
-              </ng-template>
+              <nz-card style="width:300px;" [nzCover]="cover14"
+              [nzActions]="[actionSetting,  actionEllipsis16]">
+              <nz-card-meta [nzTitle]="products[15].nombre" [nzDescription]="products[15].precio.toString() | number" >
+              </nz-card-meta>
+            </nz-card>
+            
+            <ng-template #cover14>
+              <img alt="example" [src]="products[15].img_url" />
+            </ng-template>
+            <ng-template #actionSetting>
+              <i nz-icon nzType="setting"></i>
+            </ng-template>
+            <ng-template #actionEdit>
+              <i nz-icon nzType="edit"></i>
+            </ng-template>
+            <ng-template #actionEllipsis16>
+              <a (click)="addProductService(products[15])">
+                  <i nz-icon nzType="shopping-cart" nzTheme="outline"></i>
+                </a>
+            </ng-template>
             </div>
           </div>
         </div>
       </div>
-      <div class="carousel-item">
-        <div class="container d-flex justify-content-evenly">
-          <div class="row p-5 px-4">
-            <div class="col-sm-3">
-              <nz-card style="width:300px;" [nzCover]="coverTemplate"
-                [nzActions]="[actionSetting, actionEdit, actionEllipsis]">
-                <nz-card-meta nzTitle="Card title" nzDescription="This is the description" [nzAvatar]="avatarTemplate">
-                </nz-card-meta>
-              </nz-card>
-              <ng-template #avatarTemplate>
-                <nz-avatar nzSrc="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"></nz-avatar>
-              </ng-template>
-              <ng-template #coverTemplate>
-                <img alt="example" src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png" />
-              </ng-template>
-              <ng-template #actionSetting>
-                <i nz-icon nzType="setting"></i>
-              </ng-template>
-              <ng-template #actionEdit>
-                <i nz-icon nzType="edit"></i>
-              </ng-template>
-              <ng-template #actionEllipsis>
-                <i nz-icon nzType="ellipsis"></i>
-              </ng-template>
-            </div>
-            <div class="col-sm-3">
-              <nz-card style="width:300px;" [nzCover]="coverTemplate"
-                [nzActions]="[actionSetting, actionEdit, actionEllipsis]">
-                <nz-card-meta nzTitle="Card title" nzDescription="This is the description" [nzAvatar]="avatarTemplate">
-                </nz-card-meta>
-              </nz-card>
-              <ng-template #avatarTemplate>
-                <nz-avatar nzSrc="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"></nz-avatar>
-              </ng-template>
-              <ng-template #coverTemplate>
-                <img alt="example" src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png" />
-              </ng-template>
-              <ng-template #actionSetting>
-                <i nz-icon nzType="setting"></i>
-              </ng-template>
-              <ng-template #actionEdit>
-                <i nz-icon nzType="edit"></i>
-              </ng-template>
-              <ng-template #actionEllipsis>
-                <i nz-icon nzType="ellipsis"></i>
-              </ng-template>
-            </div>
-            <div class="col-sm-3">
-              <nz-card style="width: 300px;;" [nzCover]="coverTemplate"
-                [nzActions]="[actionSetting, actionEdit, actionEllipsis]">
-                <nz-card-meta nzTitle="Card title" nzDescription="This is the description" [nzAvatar]="avatarTemplate">
-                </nz-card-meta>
-              </nz-card>
-              <ng-template #avatarTemplate>
-                <nz-avatar nzSrc="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"></nz-avatar>
-              </ng-template>
-              <ng-template #coverTemplate>
-                <img alt="example" src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png" />
-              </ng-template>
-              <ng-template #actionSetting>
-                <i nz-icon nzType="setting"></i>
-              </ng-template>
-              <ng-template #actionEdit>
-                <i nz-icon nzType="edit"></i>
-              </ng-template>
-              <ng-template #actionEllipsis>
-                <i nz-icon nzType="ellipsis"></i>
-              </ng-template>
-            </div>
-            <div class="col-sm-3">
-              <nz-card style="width: 300px;;" [nzCover]="coverTemplate"
-                [nzActions]="[actionSetting, actionEdit, actionEllipsis]">
-                <nz-card-meta nzTitle="Card title" nzDescription="This is the description" [nzAvatar]="avatarTemplate">
-                </nz-card-meta>
-              </nz-card>
-              <ng-template #avatarTemplate>
-                <nz-avatar nzSrc="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"></nz-avatar>
-              </ng-template>
-              <ng-template #coverTemplate>
-                <img alt="example" src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png" />
-              </ng-template>
-              <ng-template #actionSetting>
-                <i nz-icon nzType="setting"></i>
-              </ng-template>
-              <ng-template #actionEdit>
-                <i nz-icon nzType="edit"></i>
-              </ng-template>
-              <ng-template #actionEllipsis>
-                <i nz-icon nzType="ellipsis"></i>
-              </ng-template>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
     <button class="carousel-control-prev prev2" type="button" data-mdb-target="#carouselExampleIndicators2"
       data-mdb-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -634,100 +435,98 @@
         class="active indicator indicator3" aria-current="true" aria-label="Slide 1"></button>
       <button type="button" data-mdb-target="#carouselExampleIndicators" data-mdb-slide-to="1" aria-label="Slide 2"
         class="indicator indicator3"></button>
-      <button type="button" data-mdb-target="#carouselExampleIndicators" data-mdb-slide-to="2" aria-label="Slide 3"
-        class="indicator indicator3"></button>
     </div>
     <div class="carousel-inner ">
       <div class="carousel-item active">
         <div class="container d-flex justify-content-evenly">
           <div class="row p-5 px-4">
             <div class="col-sm-3">
-              <nz-card style="width:300px;" [nzCover]="coverTemplate"
-                [nzActions]="[actionSetting, actionEdit, actionEllipsis]">
-                <nz-card-meta nzTitle="Card title" nzDescription="This is the description" [nzAvatar]="avatarTemplate">
-                </nz-card-meta>
-              </nz-card>
-              <ng-template #avatarTemplate>
-                <nz-avatar nzSrc="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"></nz-avatar>
-              </ng-template>
-              <ng-template #coverTemplate>
-                <img alt="example" src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png" />
-              </ng-template>
-              <ng-template #actionSetting>
-                <i nz-icon nzType="setting"></i>
-              </ng-template>
-              <ng-template #actionEdit>
-                <i nz-icon nzType="edit"></i>
-              </ng-template>
-              <ng-template #actionEllipsis>
-                <i nz-icon nzType="ellipsis"></i>
-              </ng-template>
+              <nz-card style="width:300px;" [nzCover]="cover15"
+              [nzActions]="[actionSetting,  actionEllipsis17]">
+              <nz-card-meta [nzTitle]="products[16].nombre" [nzDescription]="products[16].precio.toString() | number">
+              </nz-card-meta>
+            </nz-card>
+            
+            <ng-template #cover15>
+              <img alt="example" [src]="products[16].img_url" />
+            </ng-template>
+            <ng-template #actionSetting>
+              <i nz-icon nzType="setting"></i>
+            </ng-template>
+            <ng-template #actionEdit>
+              <i nz-icon nzType="edit"></i>
+            </ng-template>
+            <ng-template #actionEllipsis17>
+              <a (click)="addProductService(products[16])">
+                  <i nz-icon nzType="shopping-cart" nzTheme="outline"></i>
+                </a>
+            </ng-template>
             </div>
             <div class="col-sm-3">
-              <nz-card style="width:300px;" [nzCover]="coverTemplate"
-                [nzActions]="[actionSetting, actionEdit, actionEllipsis]">
-                <nz-card-meta nzTitle="Card title" nzDescription="This is the description" [nzAvatar]="avatarTemplate">
-                </nz-card-meta>
-              </nz-card>
-              <ng-template #avatarTemplate>
-                <nz-avatar nzSrc="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"></nz-avatar>
-              </ng-template>
-              <ng-template #coverTemplate>
-                <img alt="example" src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png" />
-              </ng-template>
-              <ng-template #actionSetting>
-                <i nz-icon nzType="setting"></i>
-              </ng-template>
-              <ng-template #actionEdit>
-                <i nz-icon nzType="edit"></i>
-              </ng-template>
-              <ng-template #actionEllipsis>
-                <i nz-icon nzType="ellipsis"></i>
-              </ng-template>
+              <nz-card style="width:300px;" [nzCover]="cover16"
+              [nzActions]="[actionSetting,  actionEllipsis18]">
+              <nz-card-meta [nzTitle]="products[17].nombre" [nzDescription]="products[17].precio.toString() | number">
+              </nz-card-meta>
+            </nz-card>
+            
+            <ng-template #cover16>
+              <img alt="example" [src]="products[17].img_url" />
+            </ng-template>
+            <ng-template #actionSetting>
+              <i nz-icon nzType="setting"></i>
+            </ng-template>
+            <ng-template #actionEdit>
+              <i nz-icon nzType="edit"></i>
+            </ng-template>
+            <ng-template #actionEllipsis18>
+              <a (click)="addProductService(products[17])">
+                  <i nz-icon nzType="shopping-cart" nzTheme="outline"></i>
+                </a>
+            </ng-template>
             </div>
             <div class="col-sm-3">
-              <nz-card style="width: 300px;;" [nzCover]="coverTemplate"
-                [nzActions]="[actionSetting, actionEdit, actionEllipsis]">
-                <nz-card-meta nzTitle="Card title" nzDescription="This is the description" [nzAvatar]="avatarTemplate">
-                </nz-card-meta>
-              </nz-card>
-              <ng-template #avatarTemplate>
-                <nz-avatar nzSrc="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"></nz-avatar>
-              </ng-template>
-              <ng-template #coverTemplate>
-                <img alt="example" src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png" />
-              </ng-template>
-              <ng-template #actionSetting>
-                <i nz-icon nzType="setting"></i>
-              </ng-template>
-              <ng-template #actionEdit>
-                <i nz-icon nzType="edit"></i>
-              </ng-template>
-              <ng-template #actionEllipsis>
-                <i nz-icon nzType="ellipsis"></i>
-              </ng-template>
+              <nz-card style="width:300px;" [nzCover]="cover17"
+              [nzActions]="[actionSetting,  actionEllipsis19]">
+              <nz-card-meta [nzTitle]="products[18].nombre" [nzDescription]="products[18].precio.toString() | number" >
+              </nz-card-meta>
+            </nz-card>
+
+            <ng-template #cover17>
+              <img alt="example" [src]="products[18].img_url" />
+            </ng-template>
+            <ng-template #actionSetting>
+              <i nz-icon nzType="setting"></i>
+            </ng-template>
+            <ng-template #actionEdit>
+              <i nz-icon nzType="edit"></i>
+            </ng-template>
+            <ng-template #actionEllipsis19>
+              <a (click)="addProductService(products[18])">
+                  <i nz-icon nzType="shopping-cart" nzTheme="outline"></i>
+                </a>
+            </ng-template>
             </div>
             <div class="col-sm-3">
-              <nz-card style="width: 300px;;" [nzCover]="coverTemplate"
-                [nzActions]="[actionSetting, actionEdit, actionEllipsis]">
-                <nz-card-meta nzTitle="Card title" nzDescription="This is the description" [nzAvatar]="avatarTemplate">
-                </nz-card-meta>
-              </nz-card>
-              <ng-template #avatarTemplate>
-                <nz-avatar nzSrc="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"></nz-avatar>
-              </ng-template>
-              <ng-template #coverTemplate>
-                <img alt="example" src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png" />
-              </ng-template>
-              <ng-template #actionSetting>
-                <i nz-icon nzType="setting"></i>
-              </ng-template>
-              <ng-template #actionEdit>
-                <i nz-icon nzType="edit"></i>
-              </ng-template>
-              <ng-template #actionEllipsis>
-                <i nz-icon nzType="ellipsis"></i>
-              </ng-template>
+              <nz-card style="width:300px;" [nzCover]="cover18"
+              [nzActions]="[actionSetting,  actionEllipsis20]">
+              <nz-card-meta [nzTitle]="products[19].nombre" [nzDescription]="products[19].precio.toString() | number">
+              </nz-card-meta>
+            </nz-card>
+            
+            <ng-template #cover18>
+              <img alt="example" [src]="products[19].img_url" />
+            </ng-template>
+            <ng-template #actionSetting>
+              <i nz-icon nzType="setting"></i>
+            </ng-template>
+            <ng-template #actionEdit>
+              <i nz-icon nzType="edit"></i>
+            </ng-template>
+            <ng-template #actionEllipsis20>
+              <a (click)="addProductService(products[19])">
+                  <i nz-icon nzType="shopping-cart" nzTheme="outline"></i>
+                </a>
+            </ng-template>
             </div>
           </div>
         </div>
@@ -736,191 +535,98 @@
         <div class="container d-flex justify-content-evenly">
           <div class="row p-5 px-4">
             <div class="col-sm-3">
-              <nz-card style="width:300px;" [nzCover]="coverTemplate"
-                [nzActions]="[actionSetting, actionEdit, actionEllipsis]">
-                <nz-card-meta nzTitle="Card title" nzDescription="This is the description" [nzAvatar]="avatarTemplate">
-                </nz-card-meta>
-              </nz-card>
-              <ng-template #avatarTemplate>
-                <nz-avatar nzSrc="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"></nz-avatar>
-              </ng-template>
-              <ng-template #coverTemplate>
-                <img alt="example" src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png" />
-              </ng-template>
-              <ng-template #actionSetting>
-                <i nz-icon nzType="setting"></i>
-              </ng-template>
-              <ng-template #actionEdit>
-                <i nz-icon nzType="edit"></i>
-              </ng-template>
-              <ng-template #actionEllipsis>
-                <i nz-icon nzType="ellipsis"></i>
-              </ng-template>
+              <nz-card style="width:300px;" [nzCover]="cover19"
+              [nzActions]="[actionSetting,  actionEllipsis21]">
+              <nz-card-meta [nzTitle]="products[20].nombre" [nzDescription]="products[20].precio.toString() | number" >
+              </nz-card-meta>
+            </nz-card>
+            
+            <ng-template #cover19>
+              <img alt="example" [src]="products[20].img_url" />
+            </ng-template>
+            <ng-template #actionSetting>
+              <i nz-icon nzType="setting"></i>
+            </ng-template>
+            <ng-template #actionEdit>
+              <i nz-icon nzType="edit"></i>
+            </ng-template>
+            <ng-template #actionEllipsis21>
+              <a (click)="addProductService(products[20])">
+                  <i nz-icon nzType="shopping-cart" nzTheme="outline"></i>
+                </a>
+            </ng-template>
             </div>
             <div class="col-sm-3">
-              <nz-card style="width:300px;" [nzCover]="coverTemplate"
-                [nzActions]="[actionSetting, actionEdit, actionEllipsis]">
-                <nz-card-meta nzTitle="Card title" nzDescription="This is the description" [nzAvatar]="avatarTemplate">
-                </nz-card-meta>
-              </nz-card>
-              <ng-template #avatarTemplate>
-                <nz-avatar nzSrc="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"></nz-avatar>
-              </ng-template>
-              <ng-template #coverTemplate>
-                <img alt="example" src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png" />
-              </ng-template>
-              <ng-template #actionSetting>
-                <i nz-icon nzType="setting"></i>
-              </ng-template>
-              <ng-template #actionEdit>
-                <i nz-icon nzType="edit"></i>
-              </ng-template>
-              <ng-template #actionEllipsis>
-                <i nz-icon nzType="ellipsis"></i>
-              </ng-template>
+              <nz-card style="width:300px;" [nzCover]="cover20"
+              [nzActions]="[actionSetting,  actionEllipsis22]">
+              <nz-card-meta [nzTitle]="products[21].nombre" [nzDescription]="products[21].precio.toString() | number">
+              </nz-card-meta>
+            </nz-card>
+            
+            <ng-template #cover20>
+              <img alt="example" [src]="products[21].img_url" />
+            </ng-template>
+            <ng-template #actionSetting>
+              <i nz-icon nzType="setting"></i>
+            </ng-template>
+            <ng-template #actionEdit>
+              <i nz-icon nzType="edit"></i>
+            </ng-template>
+            <ng-template #actionEllipsis22>
+              <a (click)="addProductService(products[21])">
+                  <i nz-icon nzType="shopping-cart" nzTheme="outline"></i>
+                </a>
+            </ng-template>
             </div>
             <div class="col-sm-3">
-              <nz-card style="width: 300px;;" [nzCover]="coverTemplate"
-                [nzActions]="[actionSetting, actionEdit, actionEllipsis]">
-                <nz-card-meta nzTitle="Card title" nzDescription="This is the description" [nzAvatar]="avatarTemplate">
-                </nz-card-meta>
-              </nz-card>
-              <ng-template #avatarTemplate>
-                <nz-avatar nzSrc="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"></nz-avatar>
-              </ng-template>
-              <ng-template #coverTemplate>
-                <img alt="example" src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png" />
-              </ng-template>
-              <ng-template #actionSetting>
-                <i nz-icon nzType="setting"></i>
-              </ng-template>
-              <ng-template #actionEdit>
-                <i nz-icon nzType="edit"></i>
-              </ng-template>
-              <ng-template #actionEllipsis>
-                <i nz-icon nzType="ellipsis"></i>
-              </ng-template>
+              <nz-card style="width:300px;" [nzCover]="cover21"
+              [nzActions]="[actionSetting,  actionEllipsis23]">
+              <nz-card-meta [nzTitle]="products[22].nombre" [nzDescription]="products[22].precio.toString() | number">
+              </nz-card-meta>
+            </nz-card>
+            
+            <ng-template #cover21>
+              <img alt="example" [src]="products[22].img_url" />
+            </ng-template>
+            <ng-template #actionSetting>
+              <i nz-icon nzType="setting"></i>
+            </ng-template>
+            <ng-template #actionEdit>
+              <i nz-icon nzType="edit"></i>
+            </ng-template>
+            <ng-template #actionEllipsis23>
+              <a (click)="addProductService(products[22])">
+                  <i nz-icon nzType="shopping-cart" nzTheme="outline"></i>
+                </a>
+            </ng-template>
             </div>
             <div class="col-sm-3">
-              <nz-card style="width: 300px;;" [nzCover]="coverTemplate"
-                [nzActions]="[actionSetting, actionEdit, actionEllipsis]">
-                <nz-card-meta nzTitle="Card title" nzDescription="This is the description" [nzAvatar]="avatarTemplate">
-                </nz-card-meta>
-              </nz-card>
-              <ng-template #avatarTemplate>
-                <nz-avatar nzSrc="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"></nz-avatar>
-              </ng-template>
-              <ng-template #coverTemplate>
-                <img alt="example" src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png" />
-              </ng-template>
-              <ng-template #actionSetting>
-                <i nz-icon nzType="setting"></i>
-              </ng-template>
-              <ng-template #actionEdit>
-                <i nz-icon nzType="edit"></i>
-              </ng-template>
-              <ng-template #actionEllipsis>
-                <i nz-icon nzType="ellipsis"></i>
-              </ng-template>
+              <nz-card style="width:300px;" [nzCover]="cover22"
+              [nzActions]="[actionSetting,  actionEllipsis23]">
+              <nz-card-meta [nzTitle]="products[23].nombre" [nzDescription]="products[23].precio.toString() | number">
+              </nz-card-meta>
+            </nz-card>
+            <ng-template #avatarTemplate>
+              <nz-avatar nzSrc=""></nz-avatar>
+            </ng-template>
+            <ng-template #cover22>
+              <img alt="example" [src]="products[23].img_url" />
+            </ng-template>
+            <ng-template #actionSetting>
+              <i nz-icon nzType="setting"></i>
+            </ng-template>
+            <ng-template #actionEdit>
+              <i nz-icon nzType="edit"></i>
+            </ng-template>
+            <ng-template #actionEllipsis23>
+              <a (click)="addProductService(products[23])">
+                <i nz-icon nzType="shopping-cart" nzTheme="outline"></i>
+              </a>
+            </ng-template>
             </div>
           </div>
         </div>
       </div>
-      <div class="carousel-item">
-        <div class="container d-flex justify-content-evenly">
-          <div class="row p-5 px-4">
-            <div class="col-sm-3">
-              <nz-card style="width:300px;" [nzCover]="coverTemplate"
-                [nzActions]="[actionSetting, actionEdit, actionEllipsis]">
-                <nz-card-meta nzTitle="Card title" nzDescription="This is the description" [nzAvatar]="avatarTemplate">
-                </nz-card-meta>
-              </nz-card>
-              <ng-template #avatarTemplate>
-                <nz-avatar nzSrc="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"></nz-avatar>
-              </ng-template>
-              <ng-template #coverTemplate>
-                <img alt="example" src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png" />
-              </ng-template>
-              <ng-template #actionSetting>
-                <i nz-icon nzType="setting"></i>
-              </ng-template>
-              <ng-template #actionEdit>
-                <i nz-icon nzType="edit"></i>
-              </ng-template>
-              <ng-template #actionEllipsis>
-                <i nz-icon nzType="ellipsis"></i>
-              </ng-template>
-            </div>
-            <div class="col-sm-3">
-              <nz-card style="width:300px;" [nzCover]="coverTemplate"
-                [nzActions]="[actionSetting, actionEdit, actionEllipsis]">
-                <nz-card-meta nzTitle="Card title" nzDescription="This is the description" [nzAvatar]="avatarTemplate">
-                </nz-card-meta>
-              </nz-card>
-              <ng-template #avatarTemplate>
-                <nz-avatar nzSrc="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"></nz-avatar>
-              </ng-template>
-              <ng-template #coverTemplate>
-                <img alt="example" src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png" />
-              </ng-template>
-              <ng-template #actionSetting>
-                <i nz-icon nzType="setting"></i>
-              </ng-template>
-              <ng-template #actionEdit>
-                <i nz-icon nzType="edit"></i>
-              </ng-template>
-              <ng-template #actionEllipsis>
-                <i nz-icon nzType="ellipsis"></i>
-              </ng-template>
-            </div>
-            <div class="col-sm-3">
-              <nz-card style="width: 300px;;" [nzCover]="coverTemplate"
-                [nzActions]="[actionSetting, actionEdit, actionEllipsis]">
-                <nz-card-meta nzTitle="Card title" nzDescription="This is the description" [nzAvatar]="avatarTemplate">
-                </nz-card-meta>
-              </nz-card>
-              <ng-template #avatarTemplate>
-                <nz-avatar nzSrc="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"></nz-avatar>
-              </ng-template>
-              <ng-template #coverTemplate>
-                <img alt="example" src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png" />
-              </ng-template>
-              <ng-template #actionSetting>
-                <i nz-icon nzType="setting"></i>
-              </ng-template>
-              <ng-template #actionEdit>
-                <i nz-icon nzType="edit"></i>
-              </ng-template>
-              <ng-template #actionEllipsis>
-                <i nz-icon nzType="ellipsis"></i>
-              </ng-template>
-            </div>
-            <div class="col-sm-3">
-              <nz-card style="width: 300px;;" [nzCover]="coverTemplate"
-                [nzActions]="[actionSetting, actionEdit, actionEllipsis]">
-                <nz-card-meta nzTitle="Card title" nzDescription="This is the description" [nzAvatar]="avatarTemplate">
-                </nz-card-meta>
-              </nz-card>
-              <ng-template #avatarTemplate>
-                <nz-avatar nzSrc="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"></nz-avatar>
-              </ng-template>
-              <ng-template #coverTemplate>
-                <img alt="example" src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png" />
-              </ng-template>
-              <ng-template #actionSetting>
-                <i nz-icon nzType="setting"></i>
-              </ng-template>
-              <ng-template #actionEdit>
-                <i nz-icon nzType="edit"></i>
-              </ng-template>
-              <ng-template #actionEllipsis>
-                <i nz-icon nzType="ellipsis"></i>
-              </ng-template>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
     <button class="carousel-control-prev prev3" type="button" data-mdb-target="#carouselExampleIndicators3"
       data-mdb-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>

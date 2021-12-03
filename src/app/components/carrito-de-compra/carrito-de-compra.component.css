@@ -6,3 +6,7 @@
 .line h2 {
     display:inline;
 }
+
+.small-flag {
+    width: 50px;
+}

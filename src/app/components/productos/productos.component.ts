@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductoService } from '../../services/producto.service';
+import { IProduct } from '../../interfaces/producto.interface';
+import { MessageService } from '../../services/message.service';
+import { CarritoService } from '../../services/carrito.service';
 
 @Component({
   selector: 'app-productos',
@@ -7,11 +11,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductosComponent implements OnInit {
 
-  array = [1,2,3];
+  array = [1,2];
+  products: IProduct [] = [];
 
-  constructor() { }
+  constructor( private productService: ProductoService, private carritoS: CarritoService ) { }
 
   ngOnInit(): void {
+    this.products = this.productService.products;
+  }
+
+  addProductService(product: IProduct) {
+    this.carritoS.productos.push(product);
   }
 
 }
