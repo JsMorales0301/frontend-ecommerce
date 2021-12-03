@@ -89,13 +89,7 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
     NzDividerModule,
     NzCollapseModule,
     HttpClientModule
-    
-
-
-
-
-
-  
+      
   ],
   providers: [ { provide: NZ_I18N, useValue: es_ES }, { provide: NZ_ICONS, useValue: icons } ],
   
