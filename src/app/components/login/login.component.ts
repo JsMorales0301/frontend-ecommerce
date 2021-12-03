@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { userService } from 'src/app/services/users.service';
+import { UsersRequestService } from 'src/app/services/users-request.service';
+
 
 @Component({
   selector: 'app-login',
@@ -8,13 +8,13 @@ import { userService } from 'src/app/services/users.service';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
-  constructor(public userService: userService) {}
+  constructor(public userService: UsersRequestService) {}
 
   ngOnInit(): void {}
 
   // apart
   isOkLoading = false;
-  handleOk(): void {
+  handleOk(): any {
     this.isOkLoading = true;
     setTimeout(() => {
       this.isOkLoading = false;
@@ -31,10 +31,24 @@ export class LoginComponent {
     password: ''
   }
 
-  Login(): void {
-    console.log('Working!')
-    // this.userService.login(this.formLogin).subscribe((res) => {
-    //   console.log(res);
-    // });
+  
+login(formLogin: any):void{
+  console.log('showing data from createUser function', formLogin)
+
+  let login = {
+    host: this.userService._url,
+    path: '/api/auth/login',
+    data: {
+      password: this.formLogin.password,
+      username: this.formLogin.username,
+     
+
+    }
   }
+  this.userService.login(login.host + login.path, login.data).then((res:any) =>{
+    console.log(res)
+  })
+};
+ 
+
 }

@@ -14,7 +14,7 @@
       <!-- Username input -->
       <div class=" mb-4">
         <nz-input-group [nzPrefix]="prefixTemplateUser">
-          <input type="text" nz-input placeholder="Ingresa tu nombre de usuario" />
+          <input type="text" nz-input placeholder="Ingresa tu nombre de usuario" [(ngModel)] = 'formLogin.username' name="username" />
         </nz-input-group>
         <ng-template #prefixTemplateUser><i class="fas fa-user"></i></ng-template>
       </div>
@@ -25,7 +25,8 @@
           [type]="passwordVisible ? 'text' : 'password'"
           nz-input
           placeholder="Ingresa tu contraseña"
-   
+          [(ngModel)] = 'formLogin.password'
+          name="password"
         />
       </nz-input-group>
       <ng-template #prefixTemplateUserLock><i class="fas fa-key"></i></ng-template>
@@ -58,7 +59,7 @@
       </div>
     
       <!-- Submit button -->
-      <button nz-button nzType="primary" type="submit" class="button-login btn btn-primary btn-block d-block mb-4" (click)="handleOk()" (click)="Login()">Ingresar</button>
+      <button nz-button nzType="primary" type="submit" class="button-login btn btn-primary btn-block d-block mb-4" (click)="handleOk()" (click)="login(formLogin)">Ingresar</button>
   
     
       <!-- Register buttons -->
