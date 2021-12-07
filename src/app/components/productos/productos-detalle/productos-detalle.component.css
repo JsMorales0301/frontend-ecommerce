@@ -1,8 +1,19 @@
+body{
+    background-color: #ebebeb;
+    height: 90%;
+
+}
+
 .card{
     width: 70vw;
     height: 60vh;
     box-shadow: 5px 10px 9px #888888;
 
+}
+
+.ContainerDetail{
+    margin-top: 50px;
+    
 }
 
 nz-select {
@@ -11,15 +22,15 @@ nz-select {
   }
 
 .carousel{
-    height: 55vh;
+    height: 400px;
     padding-left: 9px;
     padding-right: 9px;
 }
 
-
-body{
-    background-color: #ebebeb;
+.divProducto{
+    height: 400px!Important;
 }
+
 
 #main-image{
     
@@ -28,8 +39,6 @@ margin-right: auto;
 display: block;
       
 }
-
-
 
 .vertical-line{
     border-left: solid;
