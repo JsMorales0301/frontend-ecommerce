@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { NzFormTooltipIcon } from 'ng-zorro-antd/form';
 import { UsersRequestService } from 'src/app/services/users-request.service';
+import { Router } from '@angular/router';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-registro-usuario',
@@ -9,7 +11,7 @@ import { UsersRequestService } from 'src/app/services/users-request.service';
   styleUrls: ['./registro-usuario.component.css']
 })
 export class RegistroUsuarioComponent implements OnInit {
-  constructor(private fb: FormBuilder, public usersService: UsersRequestService ) { }
+  constructor(private fb: FormBuilder, public usersService: UsersRequestService , private router: Router) { }
 
   ngOnInit(): void {
     this.validateForm = this.fb.group({
@@ -59,7 +61,14 @@ createUser():void{
     }
   }
   this.usersService.createUser(register.host + register.path, register.data).then((res:any) =>{
-    console.log(res)
+    console.log(res) 
+    if(res.data.username){
+    Swal.fire({
+      title: 'Usuario ' + JSON.stringify(res.data.username) + ', creado exitosamente' ,
+      icon: 'success',
+      confirmButtonText: 'Continuar' 
+    }); 
+  }this.router.navigate(['login']);
   })
 };
 
@@ -97,6 +106,10 @@ createUser():void{
 
   getCaptcha(e: MouseEvent): void {
     e.preventDefault();
+  }
+
+  goToHome(){
+    this.router.navigate(['']);
   }
 
 // end form functionalities

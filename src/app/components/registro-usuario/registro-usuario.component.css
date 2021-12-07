@@ -95,3 +95,58 @@ body{
         
       }
 }
+
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+/*<h2>MODIFICADO</h2>*/
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap');
+i {
+    color: black;
+}
+
+div.titulo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1{
+    /*font-family: 'Bungee Shade', cursive;*/
+    font-family: 'Press Start 2P', cursive;
+    font-size: 20px;
+    margin: auto;
+    color: white;
+}
+
+.iconosNavbar a i{
+    color: white;
+}
+
+#buttonBars{
+    color: white;
+}
+
+#favoritos:hover{
+    color: red;
+}
+
+#login:hover{
+    color:turquoise
+}
+
+#carrito:hover{
+    color: yellow;
+}
+
+.nav-item a :hover{
+    /*color: turquoise;*/
+    color: #fe9a40;
+    color: linear-gradient(90deg, #FA709A 0%, #fe9a40 100%);
+}
+
+.vr{
+    color:white;
+    margin: 0;
+    
+}
+

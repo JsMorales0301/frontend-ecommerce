@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CarritoService } from '../../services/carrito.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -10,14 +11,28 @@ import { CarritoService } from '../../services/carrito.service';
 })
 export class NavbarComponent {
 
-  
+  tokenSession: any;
   public login : boolean = false;
-  constructor( public carritoS: CarritoService ) { }
+  constructor( public carritoS: CarritoService, private router: Router) { }
 
-
+goToHome(){
+  this.router.navigate(['']);
+}
 
   ngOnInit() {
+    console.log(localStorage.getItem("tokenSession"))
+   this.tokenSession =  this.readLocalStorageValue('tokenSession');
   }
+
+  readLocalStorageValue(key: string): any {
+    return localStorage.getItem(key);
+}
+
+LogOut(): void{
+  window.localStorage.clear();
+  window.location.reload();
+
+}
 }
 
 

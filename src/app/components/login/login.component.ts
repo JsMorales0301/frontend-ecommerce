@@ -4,6 +4,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { UsersRequestService } from 'src/app/services/users-request.service';
 import { NzFormTooltipIcon } from 'ng-zorro-antd/form';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2'
 
 
 
@@ -58,8 +59,25 @@ login():void{
   }
   this.userService.login(login.host + login.path, login.data).then((res:any) =>{
     console.log(res)
+    if(res.state == false){
+      Swal.fire({
+        title: JSON.stringify(res.msg) ,
+        text: 'Ha ocurrido un error',
+        icon: 'error',
+        confirmButtonText: 'Continuar'
+      })
+    }else{
+      Swal.fire({
+        title: JSON.stringify(res.msg) ,
+        icon: 'success',
+        confirmButtonText: 'Continuar' 
+      }); this.router.navigate(['']);
+
+      localStorage.setItem("tokenSession", res.tokenSession )
+    }
+    
   })
-  this.router.navigate([''])
+  
 };
  
 submitForm(): void {
@@ -75,5 +93,9 @@ submitForm(): void {
       }
     });
   }
+}
+
+goToHome(){
+  this.router.navigate(['']);
 }
 }
