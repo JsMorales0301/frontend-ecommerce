@@ -12,14 +12,14 @@ export class ProductoService {
     {
         nombre: 'Portatil Asus - ZenBook Pro',
         descripcion: 'lorem ipsum',
-        precio: 4250000,
+        precio: 3000000,
         categoria: 'PORTATILES',
         img_url: 'https://m.media-amazon.com/images/I/81deSneMCOL._AC_SL1500_.jpg'
     },
     {
         nombre: 'Portatil Asus - ZenBook 13',
         descripcion: 'lorem ipsum',
-        precio: 5000000,
+        precio: 3500000,
         categoria: 'PORTATILES',
         img_url: 'https://m.media-amazon.com/images/I/81NbyNDC8eS._AC_SY450_.jpg'
     },
@@ -33,7 +33,7 @@ export class ProductoService {
     {
         nombre: 'Portatil HP Pavilion 15',
         descripcion: 'lorem ipsum',
-        precio: 4500000,
+        precio: 2000000,
         categoria: 'PORTATILES',
         img_url: 'https://m.media-amazon.com/images/I/7156VgoIhdL._AC_SL1500_.jpg'
     },
@@ -68,14 +68,14 @@ export class ProductoService {
     {
         nombre: 'iPhone 13 128 GB',
         descripcion: 'lorem ipsum',
-        precio: 4329900,
+        precio: 3500000,
         categoria: 'CELULARES',
         img_url: 'https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-13-pink-select-2021?wid=940&hei=1112&fmt=png-alpha&.v=1629842709000'
     },
     {
         nombre: 'iPhone 13 Pro Max 128 GB',
         descripcion: 'lorem ipsum',
-        precio: 5998900,
+        precio: 3900000,
         categoria: 'CELULARES',
         img_url: 'https://tiendasishop.com/media/catalog/product/m/l/mlvu3lz_a_12.jpg?optimize=high&bg-color=255,255,255&fit=bounds&height=700&width=700&canvas=700:700'
     },
@@ -89,7 +89,7 @@ export class ProductoService {
     {
         nombre: 'Samsung Galaxy S21 Ultra 256 GB',
         descripcion: 'lorem ipsum',
-        precio: 5499900,
+        precio: 4000000,
         categoria: 'CELULARES',
         img_url: 'https://falabella.scene7.com/is/image/FalabellaCO/11530235_1?wid=800&hei=800&qlt=70'
     },
@@ -180,4 +180,9 @@ export class ProductoService {
     }
 ];
 
+    getProductsByCategory( category: string ): IProduct[] {
+        const productsCategory: IProduct[] = this.products.filter( item => item.categoria === category ) 
+        return productsCategory;
+    }
+    
 }

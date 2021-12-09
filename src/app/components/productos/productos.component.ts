@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductoService } from '../../services/producto.service';
 import { IProduct } from '../../interfaces/producto.interface';
-import { MessageService } from '../../services/message.service';
+
 import { CarritoService } from '../../services/carrito.service';
 
 @Component({
@@ -22,6 +22,10 @@ export class ProductosComponent implements OnInit {
 
   addProductService(product: IProduct) {
     this.carritoS.productos.push(product);
+  }
+
+  filterProducts( category: string ): IProduct[] {
+    return this.productService.getProductsByCategory(category);
   }
 
 }

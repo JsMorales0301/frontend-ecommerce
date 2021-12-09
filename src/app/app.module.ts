@@ -41,6 +41,7 @@ import { NzDividerModule } from 'ng-zorro-antd/divider';
 
 import { NzCollapseModule } from 'ng-zorro-antd/collapse';
 import { HomeComponent } from './components/home/home.component';
+import { NgxPayPalModule } from 'ngx-paypal';
 
 
 registerLocaleData(es);
@@ -86,7 +87,8 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
     NzAvatarModule,
     NzDividerModule,
     NzCollapseModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxPayPalModule
       
   ],
   providers: [ { provide: NZ_I18N, useValue: es_ES }, { provide: NZ_ICONS, useValue: icons } ],
